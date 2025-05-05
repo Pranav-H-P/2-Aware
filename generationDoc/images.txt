@@ -1,0 +1,10 @@
+Title screen
+used google gemini
+Final prompt
+==============
+You have been tasked with creating cover art for the game's main menu. The artstyle is slightly cartoon-like but still serious. The art must depict the main character of the game (a sci-fi space soldier wearing grey full body tactical armor with a helmet that has a bright blue visor) walking through the hallway of an alien ship, towards a dark and ominous doorway with a shadowy figure while raising his assault rifle at it. The soldier must be on the left of the frame facing the door, which is towards the right of the frame. The camera would see the side and back of the soldier as he walks towards the door in front of him. The frame must be angled to depict the tension and action.
+
+output image was 1:1 ratio, used https://www.pixelcut.ai/ai-image-editor?tool=uncrop
+to make it 16:9
+
+Slightly touched up image in GIMP to make the figure less alien-like and more ominous.
