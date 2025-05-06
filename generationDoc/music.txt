@@ -1,0 +1,46 @@
+suno.com
+
+main menu theme
+===============
+Selected options/prompt
+> Custom mode
+> Instrumental
+> Styles => electronic, pixel-art inspired, sci-fi, violent, main menu theme
+
+
+Boss Fight
+============
+> Custom mode
+> Instrumental
+> Styles => electronic, breakcore, angry, pixel-art inspired, sci-fi, violent, run and gun, background music for level where you kill all aliens in a spaceship
+
+
+Prison Break
+=============
+> Custom mode
+> Instrumental
+> Styles => electronic, breakcore, angry, pixel-art inspired, sci-fi, violent, run and gun, background music for level where you kill all aliens in a spaceship
+
+Capture Base
+=============
+> Custom mode
+> Instrumental
+> Styles => electronic,metal, breakcore, angry, pixel-art inspired, sci-fi, violent, background music for level where you capture a base
+
+Survive
+=========
+> Custom mode
+> Instrumental
+> Styles => metal, breakcore, angry, pixel-art inspired, sci-fi, violent, background music for level where you kill all aliens in a spaceship
+
+Mark
+======
+> Custom mode
+> Instrumental
+> Styles => ominous, scary, pixel-art inspired, sci-fi, background music for level where you encounter twisted psychological horror.
+
+Military Intro/intermission
+==========================
+> Custom mode
+> Instrumental
+> Styles => Stereotypical military drum line, slightly retro pixel art vibe, No other instruments, just drums

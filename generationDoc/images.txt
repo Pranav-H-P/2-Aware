@@ -8,3 +8,27 @@ output image was 1:1 ratio, used https://www.pixelcut.ai/ai-image-editor?tool=un
 to make it 16:9
 
 Slightly touched up image in GIMP to make the figure less alien-like and more ominous.
+
+
+Character Dialog Sprites
+========================
+Google gemini
+
+
+Mark
+--------
+Can you generate an image featuring the face of an extremely zoned out (hungover) bald old man who seems extremely aloof and mentally unaware of his surroundings, possibly due to old age and isolation. The style must be cartoon-like but also serious at the same time 
+
+Intel
+---------
+Diagonal pic => In the same cartoon art style, generate an image of a young woman's face, with black hair, olive skin. She has a serious expression as she is an intelligence officer for the military. The picture depicts her looking past the camera towards the right at a 45 degree angle (Presumably looking at a screen). She has a blue holographic single eyed visor on her right eye. 
+Diagonal Side eye => In the same cartoon art style, generate an image of a young woman's face, with black hair, olive skin. She has a serious expression as she is an intelligence officer for the military. The picture depicts her looking past the camera towards the left at a 45 degree angle (Presumably looking at a screen). She has a blue holographic single eyed visor. 
+straight ahead pic => In the same cartoon art style, generate an image of a young woman's face, with black long hair, olive skin. She has a serious expression as she is an intelligence officer for the military. The picture depicts her looking straight at the camera, filled with hatred. She has a blue holographic single eyed visor on her right eye. 
+
+The generated dialog images were then put into https://tezumie.github.io/Image-to-Pixel/
+to make them pixellated
+
+NPC Soldiers
+--------------
+
+Colors changed using GIMP
