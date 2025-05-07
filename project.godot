@@ -11,8 +11,28 @@ config_version=5
 [application]
 
 config/name="2aware"
-run/main_scene="uid://cktljovo4w0pb"
+run/main_scene="uid://c15scsedsi82f"
 config/features=PackedStringArray("4.4", "GL Compatibility")
+boot_splash/bg_color=Color(0, 0, 0, 1)
+boot_splash/show_image=false
+boot_splash/fullsize=false
+boot_splash/use_filter=false
+
+[autoload]
+
+DataService="*res://singletons/scripts/dataService.gd"
+
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/size/mode=3
+window/stretch/mode="viewport"
+window/stretch/aspect="expand"
+
+[gui]
+
+theme/default_font_multichannel_signed_distance_field=true
 
 [input]
 

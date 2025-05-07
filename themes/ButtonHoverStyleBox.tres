@@ -1,0 +1,9 @@
+[gd_resource type="StyleBoxLine" format=3 uid="uid://chhcesp67hatn"]
+
+[resource]
+content_margin_left = 30.0
+color = Color(1.34766e-06, 0.741493, 0.919563, 1)
+grow_begin = -2.0
+grow_end = -2.0
+thickness = 5
+vertical = true

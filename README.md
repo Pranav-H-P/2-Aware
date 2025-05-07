@@ -1,4 +1,4 @@
 # 2 Aware
 
-A 2D top down shooter.
-
+A 2D twin stick shooter.
+171991
