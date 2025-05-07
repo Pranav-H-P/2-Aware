@@ -1,8 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://c15scsedsi82f"]
+[gd_scene load_steps=15 format=3 uid="uid://c15scsedsi82f"]
 
 [ext_resource type="Script" uid="uid://d15lxoa5vxcxy" path="res://scripts/mainMenu.gd" id="1_yqorp"]
 [ext_resource type="Texture2D" uid="uid://bh7wik5kdtm2n" path="res://assets/images/titlescreen.png" id="2_0ykhv"]
 [ext_resource type="Theme" uid="uid://bxb15ddvju7oh" path="res://themes/UITheme.tres" id="3_2wh52"]
+[ext_resource type="AudioStream" uid="uid://dreoaaw70kv0s" path="res://assets/music/MainMenu.mp3" id="4_ow34m"]
+[ext_resource type="FontFile" uid="uid://ddf2lqonu2e6w" path="res://assets/fonts/Iceland-Regular.ttf" id="5_l72w3"]
 
 [sub_resource type="Animation" id="Animation_2wh52"]
 length = 0.001
@@ -53,6 +55,106 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("MenuElements:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("MenuElements:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("MenuElements/WarningPopup:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("MenuElements/WarningPopup:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("MenuElements/NewGamePopup:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("MenuElements/NewGamePopup:modulate")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_l72w3"]
+resource_name = "bg_fade_in"
+length = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BackgroundImg:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BackgroundImg:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_0ykhv"]
@@ -111,13 +213,13 @@ tracks/1/keys = {
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_l72w3"]
-resource_name = "bg_fade_in"
-length = 0.25
+[sub_resource type="Animation" id="Animation_826wr"]
+resource_name = "menu_fade_in"
+length = 0.4
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("BackgroundImg:visible")
+tracks/0/path = NodePath("MenuElements:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -129,11 +231,95 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("BackgroundImg:modulate")
+tracks/1/path = NodePath("MenuElements:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.25),
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ucygd"]
+resource_name = "warning_popup_enter"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MenuElements/WarningPopup:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.005, 0.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MenuElements/WarningPopup:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_mipys"]
+resource_name = "warning_popup_exit"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MenuElements/WarningPopup:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.09, 0.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MenuElements/WarningPopup:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_8a8k8"]
+resource_name = "newgame_popup_enter"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MenuElements/NewGamePopup:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.005, 0.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MenuElements/NewGamePopup:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
@@ -144,7 +330,11 @@ _data = {
 &"RESET": SubResource("Animation_2wh52"),
 &"bg_fade_in": SubResource("Animation_l72w3"),
 &"flashcard_fade_in": SubResource("Animation_0ykhv"),
-&"flashcard_fade_out": SubResource("Animation_ow34m")
+&"flashcard_fade_out": SubResource("Animation_ow34m"),
+&"menu_fade_in": SubResource("Animation_826wr"),
+&"newgame_popup_enter": SubResource("Animation_8a8k8"),
+&"warning_popup_enter": SubResource("Animation_ucygd"),
+&"warning_popup_exit": SubResource("Animation_mipys")
 }
 
 [node name="MainMenu" type="CanvasLayer"]
@@ -172,7 +362,7 @@ grow_vertical = 2
 
 [node name="PanelContainer" type="PanelContainer" parent="FlashCard"]
 layout_mode = 1
-anchors_preset = 8
+anchors_preset = -1
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -199,19 +389,20 @@ theme_override_constants/margin_bottom = 50
 
 [node name="VBoxContainer" type="VBoxContainer" parent="FlashCard/PanelContainer/MarginContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
 theme_override_constants/separation = 100
 
 [node name="RichTextLabel" type="RichTextLabel" parent="FlashCard/PanelContainer/MarginContainer/VBoxContainer"]
 clip_contents = false
 custom_minimum_size = Vector2(800, 0)
 layout_mode = 2
+size_flags_horizontal = 4
 theme = ExtResource("3_2wh52")
 bbcode_enabled = true
 text = "TESSS"
 fit_content = true
 scroll_active = false
 autowrap_mode = 0
-horizontal_alignment = 1
 
 [node name="Button" type="Button" parent="FlashCard/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -227,5 +418,498 @@ libraries = {
 
 [node name="FlashCardTimer" type="Timer" parent="."]
 
+[node name="MainMenuMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_ow34m")
+bus = &"Music"
+
+[node name="MenuElements" type="Control" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TitleMain" type="RichTextLabel" parent="MenuElements"]
+clip_contents = false
+layout_mode = 1
+anchors_preset = -1
+offset_left = 512.0
+offset_top = 85.0
+offset_right = 693.0
+offset_bottom = 156.0
+pivot_offset = Vector2(381, 431)
+theme_override_colors/default_color = Color(1.34766e-06, 0.741493, 0.919563, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/normal_font = ExtResource("5_l72w3")
+theme_override_fonts/italics_font = ExtResource("5_l72w3")
+theme_override_fonts/bold_italics_font = ExtResource("5_l72w3")
+theme_override_fonts/bold_font = ExtResource("5_l72w3")
+theme_override_font_sizes/bold_italics_font_size = 200
+theme_override_font_sizes/italics_font_size = 200
+theme_override_font_sizes/mono_font_size = 200
+theme_override_font_sizes/normal_font_size = 200
+theme_override_font_sizes/bold_font_size = 200
+text = "Aware"
+fit_content = true
+autowrap_mode = 0
+
+[node name="TitleVersion" type="RichTextLabel" parent="MenuElements"]
+clip_contents = false
+layout_mode = 1
+anchors_preset = -1
+offset_left = 1012.0
+offset_top = 222.0
+offset_right = 1215.0
+offset_bottom = 300.0
+pivot_offset = Vector2(381, 431)
+theme_override_colors/default_color = Color(0.898438, 1, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/normal_font = ExtResource("5_l72w3")
+theme_override_fonts/italics_font = ExtResource("5_l72w3")
+theme_override_fonts/bold_italics_font = ExtResource("5_l72w3")
+theme_override_fonts/bold_font = ExtResource("5_l72w3")
+theme_override_font_sizes/bold_italics_font_size = 80
+theme_override_font_sizes/italics_font_size = 80
+theme_override_font_sizes/mono_font_size = 80
+theme_override_font_sizes/normal_font_size = 80
+theme_override_font_sizes/bold_font_size = 80
+text = "V2.0 - Alpha"
+fit_content = true
+autowrap_mode = 0
+
+[node name="MainButtonCard" type="Control" parent="MenuElements"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MenuElements/MainButtonCard"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -545.0
+offset_top = -72.0
+offset_right = -150.0
+offset_bottom = 122.5
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 300
+theme_override_constants/margin_bottom = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MenuElements/MainButtonCard/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Play" type="Button" parent="MenuElements/MainButtonCard/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_2wh52")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 50
+text = "New Game"
+alignment = 0
+
+[node name="Settings" type="Button" parent="MenuElements/MainButtonCard/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_2wh52")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 50
+text = "Settings"
+alignment = 0
+
+[node name="Credits" type="Button" parent="MenuElements/MainButtonCard/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_2wh52")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 50
+text = "Credits"
+alignment = 0
+
+[node name="Exit" type="Button" parent="MenuElements/MainButtonCard/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_2wh52")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 50
+text = "Exit"
+alignment = 0
+
+[node name="SettingsButtonCard" type="Control" parent="MenuElements"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="MenuElements/SettingsButtonCard"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -452.0
+offset_top = -120.0
+offset_right = 452.0
+offset_bottom = 120.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="MenuElements/SettingsButtonCard/PanelContainer"]
+layout_mode = 2
+theme = ExtResource("3_2wh52")
+
+[node name="MarginContainer" type="MarginContainer" parent="MenuElements/SettingsButtonCard/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 75
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 75
+theme_override_constants/margin_bottom = 30
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MenuElements/SettingsButtonCard/PanelContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 65
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MenuElements/SettingsButtonCard/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_2wh52")
+theme_override_font_sizes/normal_font_size = 60
+bbcode_enabled = true
+text = "Settings"
+fit_content = true
+autowrap_mode = 0
+
+[node name="MasterVolumeContainer" type="HBoxContainer" parent="MenuElements/SettingsButtonCard/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MenuElements/SettingsButtonCard/PanelContainer/MarginContainer/VBoxContainer/MasterVolumeContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme = ExtResource("3_2wh52")
+text = "Master Volume"
+fit_content = true
+autowrap_mode = 0
+
+[node name="HSlider" type="HSlider" parent="MenuElements/SettingsButtonCard/PanelContainer/MarginContainer/VBoxContainer/MasterVolumeContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme = ExtResource("3_2wh52")
+max_value = 1.0
+step = 0.001
+
+[node name="MusicVolumeContainer" type="HBoxContainer" parent="MenuElements/SettingsButtonCard/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MenuElements/SettingsButtonCard/PanelContainer/MarginContainer/VBoxContainer/MusicVolumeContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme = ExtResource("3_2wh52")
+text = "Music Volume"
+fit_content = true
+autowrap_mode = 0
+
+[node name="HSlider" type="HSlider" parent="MenuElements/SettingsButtonCard/PanelContainer/MarginContainer/VBoxContainer/MusicVolumeContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme = ExtResource("3_2wh52")
+max_value = 1.0
+step = 0.001
+
+[node name="SfxVolumeContainer" type="HBoxContainer" parent="MenuElements/SettingsButtonCard/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MenuElements/SettingsButtonCard/PanelContainer/MarginContainer/VBoxContainer/SfxVolumeContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme = ExtResource("3_2wh52")
+text = "SFX Volume"
+fit_content = true
+autowrap_mode = 0
+
+[node name="HSlider" type="HSlider" parent="MenuElements/SettingsButtonCard/PanelContainer/MarginContainer/VBoxContainer/SfxVolumeContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme = ExtResource("3_2wh52")
+max_value = 1.0
+step = 0.001
+
+[node name="DeleteSaveFile" type="Button" parent="MenuElements/SettingsButtonCard/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_2wh52")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 50
+text = "Reset Save File"
+alignment = 0
+
+[node name="UninstallUpdate" type="Button" parent="MenuElements/SettingsButtonCard/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_2wh52")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 50
+text = "Uninstall Updates"
+alignment = 0
+
+[node name="Back" type="Button" parent="MenuElements/SettingsButtonCard/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_2wh52")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 50
+text = "Back"
+alignment = 0
+
+[node name="CreditsButtonCard" type="Control" parent="MenuElements"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="MenuElements/CreditsButtonCard"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -452.0
+offset_top = -120.0
+offset_right = 452.0
+offset_bottom = 120.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="MenuElements/CreditsButtonCard/PanelContainer"]
+layout_mode = 2
+theme = ExtResource("3_2wh52")
+
+[node name="MarginContainer" type="MarginContainer" parent="MenuElements/CreditsButtonCard/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 75
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 75
+theme_override_constants/margin_bottom = 30
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MenuElements/CreditsButtonCard/PanelContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 65
+
+[node name="CreditsText" type="RichTextLabel" parent="MenuElements/CreditsButtonCard/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_2wh52")
+bbcode_enabled = true
+text = "aaaaaaaaaaaaaasd"
+fit_content = true
+autowrap_mode = 0
+
+[node name="Back" type="Button" parent="MenuElements/CreditsButtonCard/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_2wh52")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 50
+text = "Back"
+alignment = 0
+
+[node name="WarningPopup" type="Control" parent="MenuElements"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="MenuElements/WarningPopup"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -452.0
+offset_top = -198.0
+offset_right = 452.0
+offset_bottom = 198.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="MenuElements/WarningPopup/PanelContainer"]
+layout_mode = 2
+theme = ExtResource("3_2wh52")
+
+[node name="MarginContainer" type="MarginContainer" parent="MenuElements/WarningPopup/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 75
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 75
+theme_override_constants/margin_bottom = 45
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MenuElements/WarningPopup/PanelContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 65
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MenuElements/WarningPopup/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_2wh52")
+theme_override_font_sizes/normal_font_size = 60
+bbcode_enabled = true
+text = "Are you sure?"
+fit_content = true
+autowrap_mode = 0
+
+[node name="WarningReason" type="RichTextLabel" parent="MenuElements/WarningPopup/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme = ExtResource("3_2wh52")
+text = "Reason"
+fit_content = true
+autowrap_mode = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MenuElements/WarningPopup/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="CloseWarning" type="Button" parent="MenuElements/WarningPopup/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("3_2wh52")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 50
+text = "Cancel"
+alignment = 0
+
+[node name="ConfirmAction" type="Button" parent="MenuElements/WarningPopup/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("3_2wh52")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 50
+text = "Delete"
+alignment = 0
+
+[node name="NewGamePopup" type="Control" parent="MenuElements"]
+visible = false
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="MenuElements/NewGamePopup"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -452.0
+offset_top = -198.0
+offset_right = 452.0
+offset_bottom = 198.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="MenuElements/NewGamePopup/PanelContainer"]
+layout_mode = 2
+theme = ExtResource("3_2wh52")
+
+[node name="MarginContainer" type="MarginContainer" parent="MenuElements/NewGamePopup/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 75
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 75
+theme_override_constants/margin_bottom = 45
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MenuElements/NewGamePopup/PanelContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 65
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MenuElements/NewGamePopup/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_2wh52")
+theme_override_font_sizes/normal_font_size = 60
+bbcode_enabled = true
+text = "Enter Your Name"
+fit_content = true
+autowrap_mode = 0
+
+[node name="PlayerName" type="LineEdit" parent="MenuElements/NewGamePopup/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_2wh52")
+placeholder_text = "Username"
+max_length = 15
+emoji_menu_enabled = false
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MenuElements/NewGamePopup/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="CloseNewGame" type="Button" parent="MenuElements/NewGamePopup/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("3_2wh52")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 50
+text = "Cancel"
+alignment = 0
+
+[node name="StartNewGame" type="Button" parent="MenuElements/NewGamePopup/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("3_2wh52")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 50
+text = "Start!"
+alignment = 0
+
 [connection signal="pressed" from="FlashCard/PanelContainer/MarginContainer/VBoxContainer/Button" to="." method="_on_flash_card_button_pressed"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="pressed" from="MenuElements/MainButtonCard/MarginContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="MenuElements/MainButtonCard/MarginContainer/VBoxContainer/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="MenuElements/MainButtonCard/MarginContainer/VBoxContainer/Credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="MenuElements/MainButtonCard/MarginContainer/VBoxContainer/Exit" to="." method="_on_exit_pressed"]
+[connection signal="value_changed" from="MenuElements/SettingsButtonCard/PanelContainer/MarginContainer/VBoxContainer/MasterVolumeContainer/HSlider" to="." method="_on_master_slider_value_changed"]
+[connection signal="value_changed" from="MenuElements/SettingsButtonCard/PanelContainer/MarginContainer/VBoxContainer/MusicVolumeContainer/HSlider" to="." method="_on_music_slider_value_changed"]
+[connection signal="value_changed" from="MenuElements/SettingsButtonCard/PanelContainer/MarginContainer/VBoxContainer/SfxVolumeContainer/HSlider" to="." method="_on_sfx_slider_value_changed"]
+[connection signal="pressed" from="MenuElements/SettingsButtonCard/PanelContainer/MarginContainer/VBoxContainer/DeleteSaveFile" to="." method="_on_delete_save_file_pressed"]
+[connection signal="pressed" from="MenuElements/SettingsButtonCard/PanelContainer/MarginContainer/VBoxContainer/UninstallUpdate" to="." method="_on_uninstall_update_pressed"]
+[connection signal="pressed" from="MenuElements/SettingsButtonCard/PanelContainer/MarginContainer/VBoxContainer/Back" to="." method="_on_back_pressed"]
+[connection signal="meta_clicked" from="MenuElements/CreditsButtonCard/PanelContainer/MarginContainer/VBoxContainer/CreditsText" to="." method="_on_credits_text_meta_clicked"]
+[connection signal="pressed" from="MenuElements/CreditsButtonCard/PanelContainer/MarginContainer/VBoxContainer/Back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="MenuElements/WarningPopup/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/CloseWarning" to="." method="_on_close_warning_pressed"]
+[connection signal="pressed" from="MenuElements/WarningPopup/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/ConfirmAction" to="." method="_on_confirm_action_pressed"]
+[connection signal="text_changed" from="MenuElements/NewGamePopup/PanelContainer/MarginContainer/VBoxContainer/PlayerName" to="." method="_on_player_name_text_changed"]
+[connection signal="pressed" from="MenuElements/NewGamePopup/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/CloseNewGame" to="." method="_on_close_new_game_pressed"]
+[connection signal="pressed" from="MenuElements/NewGamePopup/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/StartNewGame" to="." method="_on_start_new_game_pressed"]

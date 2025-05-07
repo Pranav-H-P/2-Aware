@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://c6ixgeuppje5s"]
+[gd_scene load_steps=6 format=3 uid="uid://c6ixgeuppje5s"]
 
 [ext_resource type="Script" uid="uid://duib2tulw36bd" path="res://singletons/scripts/sceneService.gd" id="1_7jjyd"]
 
@@ -56,13 +56,42 @@ tracks/1/keys = {
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_7pr26"]
+resource_name = "fade_out_change_on_end"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0053672, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7pr26"]
 _data = {
 &"RESET": SubResource("Animation_70m8x"),
-&"fade_out": SubResource("Animation_7jjyd")
+&"fade_out": SubResource("Animation_7jjyd"),
+&"fade_out_change_on_end": SubResource("Animation_7pr26")
 }
 
 [node name="SceneService" type="CanvasLayer"]
+layer = 128
 script = ExtResource("1_7jjyd")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -79,3 +108,5 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

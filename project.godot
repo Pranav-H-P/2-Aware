@@ -21,6 +21,7 @@ boot_splash/use_filter=false
 [autoload]
 
 DataService="*res://singletons/scripts/dataService.gd"
+SceneService="*res://singletons/nodes/SceneService.tscn"
 
 [display]
 

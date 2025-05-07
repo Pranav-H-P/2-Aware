@@ -1,10 +1,12 @@
-[gd_resource type="Theme" load_steps=8 format=3 uid="uid://bxb15ddvju7oh"]
+[gd_resource type="Theme" load_steps=10 format=3 uid="uid://bxb15ddvju7oh"]
 
 [ext_resource type="StyleBox" uid="uid://5rqon60jenmh" path="res://themes/DefaultPanelStyleBox.tres" id="1_q3gsg"]
 [ext_resource type="FontFile" uid="uid://bpmk5dc133ybv" path="res://assets/fonts/Orbitron-VariableFont_wght.ttf" id="2_2bbpc"]
 [ext_resource type="StyleBox" uid="uid://chhcesp67hatn" path="res://themes/ButtonHoverStyleBox.tres" id="2_vntwr"]
 [ext_resource type="StyleBox" uid="uid://bvwyk7g4801tf" path="res://themes/ButtonNormalStyleBox.tres" id="3_cy5s3"]
 [ext_resource type="StyleBox" uid="uid://n0pp8217n7n7" path="res://themes/ButtonPressedStyleBox.tres" id="4_x2thc"]
+[ext_resource type="StyleBox" uid="uid://da37ikk6e5lqp" path="res://themes/InputStyleBoxFocus.tres" id="5_x2thc"]
+[ext_resource type="StyleBox" uid="uid://blt3p3buh6oc4" path="res://themes/InputStyleBox.tres" id="6_dxoo8"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cek67"]
 content_margin_left = 4.0
@@ -41,6 +43,10 @@ Button/styles/focus = ExtResource("2_vntwr")
 Button/styles/hover = ExtResource("2_vntwr")
 Button/styles/normal = ExtResource("3_cy5s3")
 Button/styles/pressed = ExtResource("4_x2thc")
+LineEdit/font_sizes/font_size = 40
+LineEdit/fonts/font = ExtResource("2_2bbpc")
+LineEdit/styles/focus = ExtResource("5_x2thc")
+LineEdit/styles/normal = ExtResource("6_dxoo8")
 Panel/styles/panel = ExtResource("1_q3gsg")
 RichTextLabel/colors/default_color = Color(1, 1, 1, 1)
 RichTextLabel/colors/font_outline_color = Color(0, 0, 0, 1)
