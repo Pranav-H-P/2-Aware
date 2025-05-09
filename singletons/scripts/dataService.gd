@@ -6,7 +6,11 @@ const globalSettingsPath := 'user://GlobalSettings.json' # preferences and other
 
 const userSaveDataTemplate := {
 	"level": 0,
-	"name": ""
+	"name": "",
+	"ammo": [
+		50,
+		50
+	]
 }
 const globalSettingsTemplate := {
 	"patched": false,
@@ -17,7 +21,11 @@ const globalSettingsTemplate := {
 
 var userSaveData := {
 	"level": 0,
-	"name": ''
+	"name": '',
+	"ammo": [
+		50,
+		50
+	]
 }
 var globalSettings := {
 	"patched": false,
@@ -25,6 +33,7 @@ var globalSettings := {
 	"musicVolume": 1,
 	"sfxVolume": 1
 }
+
 
 func _ready() -> void:
 	
@@ -34,7 +43,8 @@ func _ready() -> void:
 func loadSaveData():
 	var tempSaveData = loadJson(userSavePath)
 	userSaveData = tempSaveData if tempSaveData != {} &&\
-	tempSaveData.has('level') && tempSaveData.has('name') \
+	tempSaveData.has('level') && tempSaveData.has('name') &&\
+	tempSaveData.has('ammo')\
 	 else userSaveDataTemplate.duplicate()
 	
 	
@@ -73,7 +83,11 @@ func writeJson(path: String, data: Dictionary):
 func saveSettings():
 	writeJson(globalSettingsPath, globalSettings)
 
-func saveUserData():
+func getAmmoData():
+	return userSaveData['ammo']
+
+func saveUserData(shotgun = 0, sniper = 0):
+	userSaveData['ammo'] = [shotgun, sniper]
 	writeJson(userSavePath, userSaveData)
 
 func getGlobalSettings():

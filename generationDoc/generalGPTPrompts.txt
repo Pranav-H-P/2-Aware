@@ -1,0 +1,11 @@
+
+Tool used = Chatgpt
+====================
+> I'm making a game set in a sci fi setting where there is an interplanetary war against aliens, I want to generate some stock NPC voicelines. These lines must be over the top hyper-militaristic or parodies inspired from various space warfare titles from pop fiction. (Such as Halo, Warhammer 40K, or any other franchise). Do not plagiarize, but make parodied versions or similar sounding lines. All of the lines will be delivered by NPC no-name soldiers, either as background lines or when the main character interacts (one sided, the character walks up and presses the talk button). The main character is a typical one man army super space soldier. I want them to be references. Less corny please. More grimdark, less corny, more braindead
+
+output gave a few lines, I cherrypicked and added a few more
+
+Tool used = copilot
+====================
+for code completion, also used copilot to auto complete certain lines in the
+story script

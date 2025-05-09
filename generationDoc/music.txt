@@ -39,8 +39,20 @@ Mark
 > Instrumental
 > Styles => ominous, scary, pixel-art inspired, sci-fi, background music for level where you encounter twisted psychological horror.
 
-Military Intro/intermission
+The End
 ==========================
 > Custom mode
 > Instrumental
 > Styles => Stereotypical military drum line, slightly retro pixel art vibe, No other instruments, just drums
+
+MilitaryMarch
+==================
+> Custom mode
+> Instrumental
+> Styles => March, Modern, Slow, Drum line, Marching drums, Military march, Only drums, No other instruments, Grim, Repetitive, No Trumpet
+
+Boss Fight 2
+=================
+> Custom mode
+> Instrumental
+> Styles => Orchestral, Electronic, Boss Fight, breakcore, Violent, Sci-Fi, inspired, background soundrack for a massive boss fight

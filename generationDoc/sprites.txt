@@ -7,3 +7,5 @@ Output did was not a spritesheet or even pixel art, so could not be used.
 Researching the topic lead to the discovery that it is extremely hard to get accurately generated spritesheets that properly animate.
 
 Creating all in game 2d sprites using GIMP
+
+using the google gemini generated images as character designs to create the pixel art

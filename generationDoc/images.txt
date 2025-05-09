@@ -14,6 +14,9 @@ Character Dialog Sprites
 ========================
 Google gemini
 
+Megaphone icon
+----------------
+Generate an image of a grey large megaphone cartoon icon in the same style 
 
 Mark
 --------
@@ -28,7 +31,9 @@ straight ahead pic => In the same cartoon art style, generate an image of a youn
 The generated dialog images were then put into https://tezumie.github.io/Image-to-Pixel/
 to make them pixellated
 
-NPC Soldiers
+Soldiers
 --------------
+In the same cartoon art style, generate an image of a Sci-Fi Space soldier wearing grey full body tactical armor with a helmet that has a bright blue visor. The image must contain the soldier staring off camera to the right, facing the camera at a 45 degree angle towards the right. The Blue visor hides the soldiers face. 
+
 
 Colors changed using GIMP
