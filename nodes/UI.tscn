@@ -1,0 +1,180 @@
+[gd_scene load_steps=10 format=3 uid="uid://cj7a52kxwkod8"]
+
+[ext_resource type="Script" uid="uid://gguuce3b0xq8" path="res://scripts/ui.gd" id="1_vuwep"]
+[ext_resource type="Texture2D" uid="uid://dmy5t4hq3stg" path="res://assets/images/SoldierHealthImg.png" id="2_57650"]
+[ext_resource type="Theme" uid="uid://ceqvfoysx3ldy" path="res://themes/HealthbarTheme.tres" id="3_fkvgw"]
+[ext_resource type="Texture2D" uid="uid://bl7xpa1x1iej0" path="res://assets/sprites/ShotgunAmmo.png" id="4_i4ib3"]
+[ext_resource type="Texture2D" uid="uid://cvnxbdq6ysh0d" path="res://assets/sprites/SniperAmmo.png" id="5_i2thu"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_57650"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_fkvgw"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_i4ib3"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_i2thu"]
+
+[node name="UI" type="CanvasLayer"]
+script = ExtResource("1_vuwep")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Control"]
+layout_mode = 1
+offset_right = 454.0
+offset_bottom = 200.0
+theme_override_constants/margin_left = 60
+theme_override_constants/margin_top = 0
+
+[node name="HealthContainer" type="HBoxContainer" parent="Control/MarginContainer"]
+custom_minimum_size = Vector2(400, 200)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control/MarginContainer/HealthContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+texture = ExtResource("2_57650")
+expand_mode = 3
+
+[node name="HealthBar" type="HSlider" parent="Control/MarginContainer/HealthContainer"]
+custom_minimum_size = Vector2(400, 75)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme = ExtResource("3_fkvgw")
+theme_override_icons/grabber = SubResource("ImageTexture_57650")
+theme_override_icons/grabber_highlight = SubResource("ImageTexture_fkvgw")
+theme_override_icons/grabber_disabled = SubResource("ImageTexture_i4ib3")
+theme_override_icons/tick = SubResource("ImageTexture_i2thu")
+value = 50.0
+editable = false
+scrollable = false
+
+[node name="AmmoContainer" type="MarginContainer" parent="Control/MarginContainer/HealthContainer"]
+custom_minimum_size = Vector2(500, 200)
+layout_mode = 2
+theme_override_constants/margin_left = 100
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/MarginContainer/HealthContainer/AmmoContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/MarginContainer/HealthContainer/AmmoContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 25
+
+[node name="ARPanel" type="Panel" parent="Control/MarginContainer/HealthContainer/AmmoContainer/HBoxContainer/MarginContainer"]
+custom_minimum_size = Vector2(150, 100)
+layout_mode = 2
+size_flags_vertical = 4
+theme = ExtResource("3_fkvgw")
+
+[node name="ARAmmo" type="RichTextLabel" parent="Control/MarginContainer/HealthContainer/AmmoContainer/HBoxContainer/MarginContainer/ARPanel"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+offset_left = 47.0
+offset_top = -9.0
+offset_right = 247.0
+offset_bottom = 116.0
+theme = ExtResource("3_fkvgw")
+text = "INF
+"
+vertical_alignment = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="Control/MarginContainer/HealthContainer/AmmoContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 25
+
+[node name="ShotgunPanel" type="Panel" parent="Control/MarginContainer/HealthContainer/AmmoContainer/HBoxContainer/MarginContainer2"]
+custom_minimum_size = Vector2(175, 100)
+layout_mode = 2
+size_flags_vertical = 4
+theme = ExtResource("3_fkvgw")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/MarginContainer/HealthContainer/AmmoContainer/HBoxContainer/MarginContainer2/ShotgunPanel"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+offset_left = 15.0
+offset_top = -20.0
+offset_right = 319.0
+offset_bottom = 105.0
+size_flags_horizontal = 4
+theme_override_constants/separation = -10
+
+[node name="TextureRect" type="TextureRect" parent="Control/MarginContainer/HealthContainer/AmmoContainer/HBoxContainer/MarginContainer2/ShotgunPanel/HBoxContainer"]
+texture_filter = 1
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("4_i4ib3")
+expand_mode = 3
+
+[node name="ShotgunAmmo" type="RichTextLabel" parent="Control/MarginContainer/HealthContainer/AmmoContainer/HBoxContainer/MarginContainer2/ShotgunPanel/HBoxContainer"]
+clip_contents = false
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("3_fkvgw")
+text = "0
+"
+scroll_active = false
+
+[node name="MarginContainer3" type="MarginContainer" parent="Control/MarginContainer/HealthContainer/AmmoContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 25
+
+[node name="SniperPanel" type="Panel" parent="Control/MarginContainer/HealthContainer/AmmoContainer/HBoxContainer/MarginContainer3"]
+custom_minimum_size = Vector2(175, 100)
+layout_mode = 2
+size_flags_vertical = 4
+theme = ExtResource("3_fkvgw")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/MarginContainer/HealthContainer/AmmoContainer/HBoxContainer/MarginContainer3/SniperPanel"]
+custom_minimum_size = Vector2(100, 0)
+offset_left = 11.0
+offset_top = -20.0
+offset_right = 315.0
+offset_bottom = 105.0
+size_flags_horizontal = 4
+theme_override_constants/separation = -10
+
+[node name="TextureRect" type="TextureRect" parent="Control/MarginContainer/HealthContainer/AmmoContainer/HBoxContainer/MarginContainer3/SniperPanel/HBoxContainer"]
+texture_filter = 1
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("5_i2thu")
+expand_mode = 3
+
+[node name="SniperAmmo" type="RichTextLabel" parent="Control/MarginContainer/HealthContainer/AmmoContainer/HBoxContainer/MarginContainer3/SniperPanel/HBoxContainer"]
+clip_contents = false
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("3_fkvgw")
+text = "0
+"
+scroll_active = false

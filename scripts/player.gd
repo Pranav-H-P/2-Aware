@@ -36,6 +36,7 @@ const WEAPON_STATS : Dictionary =  {
 @onready var animationPlayer = $AnimationPlayer
 @onready var timeoutTimer = $TimeoutTimer
 @onready var shootTimer = $ShootTimer
+@onready var ui = get_parent().get_node('UI')
 
 @export var SPEED = 10
 
@@ -43,12 +44,13 @@ const WEAPON_STATS : Dictionary =  {
 var bulletAbove = true; # sets bullet to above player in z index
 var currentWeapon = WEAPON.AR
 var ammoCount =  {
-	WEAPON.AR :  "ထ",
 	WEAPON.SHOTGUN :  0, 
 	WEAPON.SNIPER : 0
 }# AR has unlimited Ammo
 
 var controllable = true; # for cutscenes
+
+var health = 100
 
 func _ready() -> void:
 	shootTimer.one_shot = true
@@ -98,6 +100,7 @@ func getMouseDirection() -> String:
 	if pos == "up": bulletAbove = false
 	return pos
 
+
 func setAnimation(animName: String) ->void:
 	if (animationPlayer.current_animation != animName):
 		animationPlayer.play(animName)
@@ -110,34 +113,46 @@ func cycleWeapon(direction):
 	setWeapon(currentWeapon)
 	
 func _physics_process(delta: float) -> void:
-	var mouseDir = getMouseDirection()
-	velocity.x = Input.get_axis("left","right") * SPEED * delta * 1000
-	velocity.y = Input.get_axis("up","down") * SPEED * delta * 1000
-	if (velocity.x == 0 && velocity.y == 0):
-		setAnimation("idle_"+mouseDir)
-	else:
-		setAnimation("walk_"+mouseDir)
-	if velocity.length() > 1: velocity.normalized() 
-	velocity = lerp(get_real_velocity(),velocity,0.1)
 	
+	if health<=0:
+		animationPlayer.play("death")
+		controllable = false
+		
+	if controllable:
+		var mouseDir = getMouseDirection()
+		velocity.x = Input.get_axis("left","right") * SPEED * delta * 1000
+		velocity.y = Input.get_axis("up","down") * SPEED * delta * 1000
+		if (velocity.x == 0 && velocity.y == 0):
+			setAnimation("idle_"+mouseDir)
+		else:
+			setAnimation("walk_"+mouseDir)
+		if velocity.length() > 1: velocity.normalized() 
+		velocity = lerp(get_real_velocity(),velocity,0.1)
+		
+		
+		if (Input.is_action_pressed("shoot")):
+			if (shootTimer.is_stopped()):
+				shoot(WEAPON_STATS[currentWeapon])
+				shootTimer.start()
+		
+		move_and_slide()
+		
+		if Input.is_action_pressed('1'):
+			setWeapon(WEAPON.AR)
+		elif Input.is_action_pressed('2'):
+			setWeapon(WEAPON.SHOTGUN)
+		elif Input.is_action_pressed('3'):
+			setWeapon(WEAPON.SNIPER)
+		if Input.is_action_just_released("mouse_wheel_down"):
+			cycleWeapon(-1)
+		elif Input.is_action_just_released("mouse_wheel_up"):
+			cycleWeapon(1)
 	
-	if (Input.is_action_pressed("shoot")):
-		if (shootTimer.is_stopped()):
-			shoot(WEAPON_STATS[currentWeapon])
-			shootTimer.start()
-	
-	move_and_slide()
-	
-	if Input.is_action_pressed('1'):
-		setWeapon(WEAPON.AR)
-	elif Input.is_action_pressed('2'):
-		setWeapon(WEAPON.SHOTGUN)
-	elif Input.is_action_pressed('3'):
-		setWeapon(WEAPON.SNIPER)
-	if Input.is_action_just_released("mouse_wheel_down"):
-		cycleWeapon(-1)
-	elif Input.is_action_just_released("mouse_wheel_up"):
-		cycleWeapon(1)
+	ui.updatePlayerStats({
+		'health': health,
+		'ammo': [ammoCount[WEAPON.SHOTGUN] , ammoCount[WEAPON.SNIPER]],
+		'ammoSelect': int(currentWeapon)
+	})
 
 func shoot(bulletData):
 	if (currentWeapon == WEAPON.AR):
@@ -188,3 +203,8 @@ func shoot(bulletData):
 			print('empty noise')
 
 	
+
+
+func _on_animation_player_animation_finished(anim_name: StringName) -> void:
+	if anim_name == 'death':
+		set_physics_process(false)

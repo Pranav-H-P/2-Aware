@@ -1,0 +1,53 @@
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://ceqvfoysx3ldy"]
+
+[ext_resource type="FontFile" uid="uid://b52sd17t3r2cb" path="res://assets/fonts/Jersey10-Regular.ttf" id="1_18lfm"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xnhxc"]
+bg_color = Color(0, 0.90625, 1, 1)
+border_color = Color(0, 0.835938, 1, 1)
+corner_radius_bottom_right = 99
+expand_margin_top = 12.0
+expand_margin_bottom = 12.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_18lfm"]
+bg_color = Color(1, 0, 0, 1)
+border_color = Color(0, 0.835938, 1, 1)
+corner_radius_bottom_right = 20
+expand_margin_top = 12.0
+expand_margin_bottom = 12.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7rryy"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0, 0, 0, 1)
+corner_radius_bottom_right = 99
+corner_detail = 6
+expand_margin_top = 12.0
+expand_margin_bottom = 12.0
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bixm1"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0, 0, 0, 0.607843)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+corner_detail = 5
+anti_aliasing = false
+
+[resource]
+HSlider/constants/center_grabber = 0
+HSlider/constants/grabber_offset = 0
+HSlider/styles/grabber_area = SubResource("StyleBoxFlat_xnhxc")
+HSlider/styles/grabber_area_highlight = SubResource("StyleBoxFlat_18lfm")
+HSlider/styles/slider = SubResource("StyleBoxFlat_7rryy")
+Panel/styles/panel = SubResource("StyleBoxFlat_bixm1")
+RichTextLabel/constants/outline_size = 3
+RichTextLabel/font_sizes/normal_font_size = 64
+RichTextLabel/fonts/normal_font = ExtResource("1_18lfm")

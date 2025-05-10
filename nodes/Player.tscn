@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://cktljovo4w0pb"]
+[gd_scene load_steps=20 format=3 uid="uid://cktljovo4w0pb"]
 
 [ext_resource type="Script" uid="uid://c7xmlwopmfclm" path="res://scripts/player.gd" id="1_d16bx"]
 [ext_resource type="Texture2D" uid="uid://bgob8pjrdd0h5" path="res://assets/sprites/spritesheetBlueSoldier.png" id="1_jymnx"]
@@ -319,6 +319,22 @@ tracks/1/keys = {
 "values": [Vector2(0, -1)]
 }
 
+[sub_resource type="Animation" id="Animation_v54eb"]
+resource_name = "death"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0333333, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [48, 49, 50, 51, 52]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_x4r3j"]
 _data = {
 &"RESET": SubResource("Animation_d16bx"),
@@ -326,6 +342,7 @@ _data = {
 &"action_left": SubResource("Animation_a66cn"),
 &"action_right": SubResource("Animation_qkc5w"),
 &"action_up": SubResource("Animation_pgw6w"),
+&"death": SubResource("Animation_v54eb"),
 &"idle_down": SubResource("Animation_1ockd"),
 &"idle_left": SubResource("Animation_586vk"),
 &"idle_right": SubResource("Animation_2yb4q"),
@@ -339,7 +356,7 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jymnx"]
 size = Vector2(21, 41)
 
-[node name="CharacterBody2D" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D"]
 z_index = 1
 script = ExtResource("1_d16bx")
 
@@ -371,3 +388,5 @@ one_shot = true
 
 [node name="barrel" type="Node2D" parent="."]
 position = Vector2(-14, -1)
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
