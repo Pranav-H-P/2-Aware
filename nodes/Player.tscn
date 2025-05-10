@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://cktljovo4w0pb"]
+[gd_scene load_steps=7 format=3 uid="uid://cktljovo4w0pb"]
 
 [ext_resource type="Script" uid="uid://c7xmlwopmfclm" path="res://scripts/player.gd" id="1_d16bx"]
 [ext_resource type="Texture2D" uid="uid://bgob8pjrdd0h5" path="res://assets/sprites/spritesheetBlueSoldier.png" id="1_jymnx"]
 [ext_resource type="AnimationLibrary" uid="uid://cydyrf48yqel" path="res://animations/playerAnims.tres" id="3_1b2qv"]
 [ext_resource type="Script" uid="uid://bnjnp47t8qlee" path="res://scripts/dynamicCamera.gd" id="3_x4r3j"]
+[ext_resource type="AudioStream" uid="uid://dea2sx6xji7gn" path="res://assets/soundEffects/8bitplayerDeathNoise.mp3" id="5_u71v6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jymnx"]
 size = Vector2(21, 41)
@@ -33,12 +34,15 @@ position_smoothing_enabled = true
 position_smoothing_speed = 10.0
 script = ExtResource("3_x4r3j")
 
-[node name="TimeoutTimer" type="Timer" parent="."]
-
 [node name="ShootTimer" type="Timer" parent="."]
 one_shot = true
 
 [node name="barrel" type="Node2D" parent="."]
 position = Vector2(-14, -1)
+
+[node name="8BitplayerDeathNoise" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = ExtResource("5_u71v6")
+bus = &"Sfx"
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

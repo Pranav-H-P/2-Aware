@@ -34,9 +34,9 @@ const WEAPON_STATS : Dictionary =  {
  }
 
 @onready var animationPlayer = $AnimationPlayer
-@onready var timeoutTimer = $TimeoutTimer
 @onready var shootTimer = $ShootTimer
 @onready var ui = get_parent().get_node('UI')
+@onready var deathNoise = $"8BitplayerDeathNoise"
 
 @export var SPEED = 10
 @export var bulletColor = Color("ffd702")
@@ -117,6 +117,7 @@ func cycleWeapon(direction):
 func _physics_process(delta: float) -> void:
 	
 	if health <= 0:
+		deathNoise.play()
 		animationPlayer.play("death")
 		set_physics_process(false)
 		

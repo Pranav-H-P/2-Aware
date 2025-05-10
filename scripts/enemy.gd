@@ -68,6 +68,7 @@ func _physics_process(delta: float) -> void:
 	var distanceToPlayer = (player.global_position - global_position).length()
 	
 	if health <= 0:
+		$DeathNoise.play()
 		animationPlayer.play("death")
 		
 	

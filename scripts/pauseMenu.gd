@@ -3,6 +3,10 @@ extends CanvasLayer
 @onready var pauseMenu = $Control
 @onready var animationPlayer = $AnimationPlayer
 @onready var warningText = $Control/WarningPopup/PanelContainer/MarginContainer/VBoxContainer/RichTextLabel
+@onready var sfxVolumeSlider = $Control/SettingsButtonCard/PanelContainer/MarginContainer/VBoxContainer/SfxVolumeContainer/HSlider
+@onready var masterVolumeSlider = $Control/SettingsButtonCard/PanelContainer/MarginContainer/VBoxContainer/MasterVolumeContainer/HSlider
+@onready var musicVolumeSlider = $Control/SettingsButtonCard/PanelContainer/MarginContainer/VBoxContainer/MusicVolumeContainer/HSlider
+
 
 func _ready() -> void:
 	pauseMenu.visible = false
@@ -52,3 +56,35 @@ func _on_menu_pressed() -> void:
 func _on_restart_pressed() -> void:
 	warningText.text = 'Progress will be lost! Restart Level?'
 	animationPlayer.play('warning_enter')
+
+
+func _on_settings_pressed() -> void:
+	
+	sfxVolumeSlider.value = DataService.getGlobalSettings()['sfxVolume']
+	masterVolumeSlider.value = DataService.getGlobalSettings()['masterVolume']
+	musicVolumeSlider.value = DataService.getGlobalSettings()['musicVolume']
+	
+	animationPlayer.play('settings_enter')
+	
+
+
+func _on_sfx_slider_value_changed(value: float) -> void:
+	var busIndex = AudioServer.get_bus_index("Sfx")
+	AudioServer.set_bus_volume_linear(busIndex, value)
+	DataService.globalSettings['sfxVolume'] = value
+
+
+func _on_music_slider_value_changed(value: float) -> void:
+	var busIndex = AudioServer.get_bus_index("Music")
+	AudioServer.set_bus_volume_linear(busIndex, value)
+	DataService.globalSettings['musicVolume'] = value
+
+
+func _on_master_slider_value_changed(value: float) -> void:
+	var busIndex = AudioServer.get_bus_index("Master")
+	AudioServer.set_bus_volume_linear(busIndex, value)
+	DataService.globalSettings['masterVolume'] = value
+
+
+func _on_back_pressed() -> void:
+	animationPlayer.play_backwards("settings_enter")

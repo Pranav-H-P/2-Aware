@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://cay0wuwmt6uyy"]
+[gd_scene load_steps=6 format=3 uid="uid://cay0wuwmt6uyy"]
 
 [ext_resource type="Script" uid="uid://bvhxfygec35l0" path="res://scripts/bullet.gd" id="1_uyh8a"]
+[ext_resource type="AudioStream" uid="uid://c64pd2ssrgyql" path="res://assets/soundEffects/16bitBulletHittingPerson.mp3" id="2_q0o1u"]
 [ext_resource type="Texture2D" uid="uid://dmoradivtxf81" path="res://assets/sprites/Bullet2.png" id="2_uyh8a"]
+[ext_resource type="AudioStream" uid="uid://dq15oukgqsm7t" path="res://assets/soundEffects/16bitBulletHittingWall.mp3" id="3_65wxn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v7i7k"]
 size = Vector2(8, 8)
@@ -9,6 +11,14 @@ size = Vector2(8, 8)
 [node name="Bullet" type="Area2D" groups=["bullet"]]
 collision_mask = 5
 script = ExtResource("1_uyh8a")
+
+[node name="16BitBulletHittingPerson" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_q0o1u")
+bus = &"Sfx"
+
+[node name="16BitBulletHittingWall" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_65wxn")
+bus = &"Sfx"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_v7i7k")
