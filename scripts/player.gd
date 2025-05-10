@@ -24,7 +24,7 @@ const WEAPON_STATS : Dictionary =  {
 		"crosshair" : crosshairShotgun,
 		"fireRate" : 60.0,
 		'spread':15,
-		"damage" : 15
+		"damage" : 22
 	},
 	WEAPON.SNIPER:{
 		"crosshair" : crosshairSniper,
@@ -39,7 +39,7 @@ const WEAPON_STATS : Dictionary =  {
 @onready var ui = get_parent().get_node('UI')
 
 @export var SPEED = 10
-
+@export var bulletColor = Color("ffd702")
 
 var bulletAbove = true; # sets bullet to above player in z index
 var currentWeapon = WEAPON.AR
@@ -51,6 +51,9 @@ var ammoCount =  {
 var controllable = true; # for cutscenes
 
 var health = 100
+
+var actionsValid = false
+var actionDone = false
 
 func _ready() -> void:
 	shootTimer.one_shot = true
@@ -114,9 +117,10 @@ func cycleWeapon(direction):
 	
 func _physics_process(delta: float) -> void:
 	
-	if health<=0:
+	if health <= 0:
 		animationPlayer.play("death")
 		controllable = false
+		set_physics_process(false)
 		
 	if controllable:
 		var mouseDir = getMouseDirection()
@@ -134,6 +138,11 @@ func _physics_process(delta: float) -> void:
 			if (shootTimer.is_stopped()):
 				shoot(WEAPON_STATS[currentWeapon])
 				shootTimer.start()
+				
+		if actionsValid:
+			if Input.is_action_pressed('interact'):
+				actionDone = true
+				animationPlayer.play("action_"+mouseDir)
 		
 		move_and_slide()
 		
@@ -153,10 +162,15 @@ func _physics_process(delta: float) -> void:
 		'ammo': [ammoCount[WEAPON.SHOTGUN] , ammoCount[WEAPON.SNIPER]],
 		'ammoSelect': int(currentWeapon)
 	})
+	
+	
+	
 
 func shoot(bulletData):
 	if (currentWeapon == WEAPON.AR):
 		var blt = bullet.instantiate()
+		blt.creator = 'player'
+		blt.modulate = bulletColor
 		blt.damage = WEAPON_STATS[currentWeapon]['damage']
 		blt.global_position = barrel.global_position
 		var dir = (get_global_mouse_position() - barrel.global_position).normalized()
@@ -182,6 +196,8 @@ func shoot(bulletData):
 					]
 				for dir in dirs:
 					var blt = bullet.instantiate()
+					blt.modulate = bulletColor
+					blt.creator = 'player'
 					blt.damage = WEAPON_STATS[currentWeapon]['damage']
 					blt.global_position = barrel.global_position
 					blt.speed = blt.speed
@@ -193,6 +209,9 @@ func shoot(bulletData):
 				var dir = (get_global_mouse_position() - barrel.global_position).normalized()
 			
 				var blt = bullet.instantiate()
+				blt.modulate = bulletColor
+				blt.creator = 'player'
+				blt.damage = WEAPON_STATS[currentWeapon]['damage']
 				blt.global_position = barrel.global_position
 				blt.speed = blt.speed*2
 				blt.direction = dir
@@ -207,4 +226,4 @@ func shoot(bulletData):
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name == 'death':
-		set_physics_process(false)
+		pass #TODO add level reload

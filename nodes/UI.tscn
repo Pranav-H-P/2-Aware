@@ -152,6 +152,7 @@ theme = ExtResource("3_fkvgw")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Control/MarginContainer/HealthContainer/AmmoContainer/HBoxContainer/MarginContainer3/SniperPanel"]
 custom_minimum_size = Vector2(100, 0)
+layout_mode = 0
 offset_left = 11.0
 offset_top = -20.0
 offset_right = 315.0
