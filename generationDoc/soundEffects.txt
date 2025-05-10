@@ -1,0 +1,18 @@
+using https://elevenlabs.io/app/sound-effects/generate
+
+> 16 bit shotgun firing
+> shotgun reloading
+> 16 bit assault rifle single shot firing
+> 16 bit powerful sniper firing
+> 16 bit bolt action rifle reloading
+> 16 bit no bullets in gun click noise
+> single heavy footstep on hard floor with reverb
+> teleportation noise
+> 16 bit explosion
+> 16 bit futuristic explosion
+> 16 bit cbullet hitting wall
+> 16 bit bullet hitting person
+> 8-bit player grunt injury, deep voice
+> 8-bit punch sound, not cartoonish, very serious punch
+> 16-bit massive sci-fi space lazer blast
+> 16-bit game character talking sound effect single note

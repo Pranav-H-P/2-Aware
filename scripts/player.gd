@@ -48,7 +48,6 @@ var ammoCount =  {
 	WEAPON.SNIPER : 0
 }# AR has unlimited Ammo
 
-var controllable = true; # for cutscenes
 
 var health = 100
 
@@ -119,10 +118,9 @@ func _physics_process(delta: float) -> void:
 	
 	if health <= 0:
 		animationPlayer.play("death")
-		controllable = false
 		set_physics_process(false)
 		
-	if controllable:
+	elif !DialogManager.cutsceneActive:
 		var mouseDir = getMouseDirection()
 		velocity.x = Input.get_axis("left","right") * SPEED * delta * 1000
 		velocity.y = Input.get_axis("up","down") * SPEED * delta * 1000
@@ -159,7 +157,7 @@ func _physics_process(delta: float) -> void:
 	
 	ui.updatePlayerStats({
 		'health': health,
-		'ammo': [ammoCount[WEAPON.SHOTGUN] , ammoCount[WEAPON.SNIPER]],
+		'ammo': [int(ammoCount[WEAPON.SHOTGUN]) , int(ammoCount[WEAPON.SNIPER])],
 		'ammoSelect': int(currentWeapon)
 	})
 	
@@ -226,4 +224,4 @@ func shoot(bulletData):
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name == 'death':
-		pass #TODO add level reload
+		ui.showDeathScreen()	

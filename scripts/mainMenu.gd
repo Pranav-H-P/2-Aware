@@ -100,6 +100,7 @@ func setupDynamicUI():
 	musicVolumeSlider.value = DataService.getGlobalSettings()['musicVolume']
 	
 func _ready() -> void:
+	SceneService.fadeIn()
 	allowedFlashcardCount = 3 if DataService.getGlobalSettings()['patched'] else 2
 	flashCard.visible = false
 	showFlashCard(flashCardMessages[currentFlashcard])

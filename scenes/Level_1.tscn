@@ -1,11 +1,13 @@
-[gd_scene load_steps=13 format=4 uid="uid://ch2vudqmrx1uy"]
+[gd_scene load_steps=15 format=4 uid="uid://ch2vudqmrx1uy"]
 
+[ext_resource type="Script" uid="uid://nj164md71o0r" path="res://scripts/level1.gd" id="1_bmqp6"]
 [ext_resource type="Texture2D" uid="uid://hp2yvk8n5gdl" path="res://assets/sprites/environmentTextures.png" id="1_qux8b"]
 [ext_resource type="PackedScene" uid="uid://cljmkdu331rta" path="res://nodes/Pickup.tscn" id="1_wknwv"]
 [ext_resource type="PackedScene" uid="uid://cktljovo4w0pb" path="res://nodes/Player.tscn" id="2_5f7sk"]
 [ext_resource type="PackedScene" uid="uid://cj7a52kxwkod8" path="res://nodes/UI.tscn" id="3_1tdkx"]
 [ext_resource type="Texture2D" uid="uid://ujodtgdubif1" path="res://assets/sprites/coverTextures.png" id="5_fxqaj"]
 [ext_resource type="PackedScene" uid="uid://dfpyulrjnhqiu" path="res://nodes/Enemy.tscn" id="6_d6w1m"]
+[ext_resource type="PackedScene" uid="uid://dlpc630p2pmrc" path="res://nodes/PauseMenu.tscn" id="7_kjrqm"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5f7sk"]
 texture = ExtResource("1_qux8b")
@@ -389,6 +391,7 @@ polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(-240, -189, 369, -189, 368, 260, -242, 258)])
 
 [node name="Level1" type="Node2D"]
+script = ExtResource("1_bmqp6")
 
 [node name="Pickup" parent="." instance=ExtResource("1_wknwv")]
 position = Vector2(287, 0)
@@ -436,3 +439,5 @@ navigation_polygon = SubResource("NavigationPolygon_fxqaj")
 [node name="Enemy" parent="." instance=ExtResource("6_d6w1m")]
 position = Vector2(232, 137)
 alienType = 2
+
+[node name="PauseMenu" parent="." instance=ExtResource("7_kjrqm")]

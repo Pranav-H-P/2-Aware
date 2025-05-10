@@ -1,0 +1,301 @@
+[gd_scene load_steps=8 format=3 uid="uid://dlpc630p2pmrc"]
+
+[ext_resource type="Script" uid="uid://c77166l183n7o" path="res://scripts/pauseMenu.gd" id="1_bdydk"]
+[ext_resource type="Theme" uid="uid://bxb15ddvju7oh" path="res://themes/UITheme.tres" id="1_lilov"]
+[ext_resource type="StyleBox" uid="uid://5rqon60jenmh" path="res://themes/DefaultPanelStyleBox.tres" id="2_d2j3l"]
+
+[sub_resource type="Animation" id="Animation_g3bgu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../../..:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../../..:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../..:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../..:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_8jsmx"]
+resource_name = "pausemenu_enter"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../../..:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.01, 0.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../../..:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_d2j3l"]
+resource_name = "warning_enter"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../..:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../..:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.01, 0.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_g3bgu"]
+_data = {
+&"RESET": SubResource("Animation_g3bgu"),
+&"pausemenu_enter": SubResource("Animation_8jsmx"),
+&"warning_enter": SubResource("Animation_d2j3l")
+}
+
+[node name="PauseMenu" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_bdydk")
+
+[node name="Control" type="Control" parent="."]
+process_mode = 3
+visible = false
+modulate = Color(1, 1, 1, 0)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="ColorRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.294118)
+
+[node name="PanelContainer" type="PanelContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("2_d2j3l")
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 100
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Continue" type="Button" parent="Control/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_lilov")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 50
+text = "Continue"
+alignment = 0
+
+[node name="Restart" type="Button" parent="Control/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_lilov")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 50
+text = "Restart"
+alignment = 0
+
+[node name="Settings" type="Button" parent="Control/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_lilov")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 50
+text = "Settings"
+alignment = 0
+
+[node name="Menu" type="Button" parent="Control/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_lilov")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 50
+text = "Menu
+"
+alignment = 0
+
+[node name="Exit" type="Button" parent="Control/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_lilov")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 50
+text = "Quit
+"
+alignment = 0
+
+[node name="WarningPopup" type="Control" parent="Control"]
+visible = false
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="Control/WarningPopup"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -452.0
+offset_top = -198.0
+offset_right = 452.0
+offset_bottom = 198.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="Control/WarningPopup/PanelContainer"]
+layout_mode = 2
+theme = ExtResource("1_lilov")
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/WarningPopup/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 75
+theme_override_constants/margin_top = 70
+theme_override_constants/margin_right = 75
+theme_override_constants/margin_bottom = 45
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/WarningPopup/PanelContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 65
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/WarningPopup/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_lilov")
+theme_override_font_sizes/normal_font_size = 60
+bbcode_enabled = true
+text = "Are you sure?"
+fit_content = true
+autowrap_mode = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/WarningPopup/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="CloseWarning" type="Button" parent="Control/WarningPopup/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_lilov")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 50
+text = "Cancel"
+alignment = 0
+
+[node name="ConfirmAction" type="Button" parent="Control/WarningPopup/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_lilov")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 50
+text = "Confirm"
+alignment = 0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Control/WarningPopup/PanelContainer/MarginContainer")
+libraries = {
+&"": SubResource("AnimationLibrary_g3bgu")
+}
+
+[connection signal="pressed" from="Control/PanelContainer/MarginContainer/VBoxContainer/Continue" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="Control/PanelContainer/MarginContainer/VBoxContainer/Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="Control/PanelContainer/MarginContainer/VBoxContainer/Menu" to="." method="_on_menu_pressed"]
+[connection signal="pressed" from="Control/PanelContainer/MarginContainer/VBoxContainer/Exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="Control/WarningPopup/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/CloseWarning" to="." method="_on_close_warning_pressed"]
+[connection signal="pressed" from="Control/WarningPopup/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/ConfirmAction" to="." method="_on_confirm_action_pressed"]

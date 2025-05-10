@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b8lc4wqp56x5w"]
+
+[ext_resource type="Script" uid="uid://be2d5ooo083yq" path="res://singletons/scripts/dialogManager.gd" id="1_iy8ce"]
+
+[node name="DialogManager" type="CanvasLayer"]
+script = ExtResource("1_iy8ce")

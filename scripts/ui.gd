@@ -11,7 +11,7 @@ extends CanvasLayer
 
 @onready var shotgunAmmoText = $Control/MarginContainer/HealthContainer/AmmoContainer/HBoxContainer/MarginContainer2/ShotgunPanel/HBoxContainer/ShotgunAmmo
 @onready var sniperAmmoText = $Control/MarginContainer/HealthContainer/AmmoContainer/HBoxContainer/MarginContainer3/SniperPanel/HBoxContainer/SniperAmmo
-
+@onready var animationPlayer = $AnimationPlayer
 @onready var healthBar = $Control/MarginContainer/HealthContainer/HealthBar
 var health = 100
 var ammo = [0, 0]
@@ -43,3 +43,21 @@ func updatePlayerStats(data):
 	health = data['health']
 	ammo = data['ammo']
 	ammoSelect = data['ammoSelect']
+
+
+func _on_exit_pressed() -> void:
+	get_tree().quit()
+
+
+func _on_menu_pressed() -> void:
+	get_tree().paused = false
+	SceneService.changeSceneWithFade("MainMenu")
+
+func showDeathScreen():
+	get_tree().paused = true
+	animationPlayer.play("failed_enter")
+	
+
+func _on_restart_pressed() -> void:
+	get_tree().paused = false
+	SceneService.reloadWithFade()

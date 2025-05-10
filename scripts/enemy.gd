@@ -51,7 +51,6 @@ const ALIEN_DATA:Dictionary = {
 @export var bulletSpeed = 2
 
 var bulletAbove = false
-var controllable = true
 
 
 func _ready() -> void:
@@ -70,10 +69,9 @@ func _physics_process(delta: float) -> void:
 	
 	if health <= 0:
 		animationPlayer.play("death")
-		controllable = false
 		
 	
-	if controllable:
+	elif !DialogManager.cutsceneActive:
 		var playerDir = getPlayerDirection()
 		
 		if distanceToPlayer > maxApproachDist && distanceToPlayer < detectionRadius:
