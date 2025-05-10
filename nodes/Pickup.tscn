@@ -1,7 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://cljmkdu331rta"]
+[gd_scene load_steps=10 format=3 uid="uid://cljmkdu331rta"]
 
 [ext_resource type="Texture2D" uid="uid://dghqbkneyctc5" path="res://assets/sprites/Medkit.png" id="1_4k4yc"]
 [ext_resource type="Script" uid="uid://bdmfyo4fns2fe" path="res://scripts/pickup.gd" id="1_sdd4l"]
+[ext_resource type="AudioStream" uid="uid://d1v0krnywfl8n" path="res://assets/soundEffects/healthPickup.mp3" id="2_edp1a"]
+[ext_resource type="AudioStream" uid="uid://bu7yx4ue2qiay" path="res://assets/soundEffects/shotgunPickup.mp3" id="3_t7wte"]
+[ext_resource type="AudioStream" uid="uid://6col8pcd7llh" path="res://assets/soundEffects/sniperPickup.mp3" id="4_2elok"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4k4yc"]
 size = Vector2(38, 36)
@@ -48,6 +51,15 @@ _data = {
 z_index = 10
 script = ExtResource("1_sdd4l")
 
+[node name="HealthPickup" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_edp1a")
+
+[node name="ShotgunPickup" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_t7wte")
+
+[node name="SniperPickup" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_2elok")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 2)
 shape = SubResource("RectangleShape2D_4k4yc")
@@ -63,3 +75,6 @@ libraries = {
 autoplay = "anim"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="finished" from="HealthPickup" to="." method="_on_pickup_finished"]
+[connection signal="finished" from="ShotgunPickup" to="." method="_on_pickup_finished"]
+[connection signal="finished" from="SniperPickup" to="." method="_on_pickup_finished"]

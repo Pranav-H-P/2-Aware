@@ -10,7 +10,6 @@ const crosshairShotgun =  preload("res://assets/sprites/crosshairShotgun.png")
 const crosshairSniper = preload("res://assets/sprites/crosshairSniper.png")
 const bullet = preload("res://nodes/bullet.tscn")
 
-
 @onready var barrel = $barrel
 
 
@@ -19,7 +18,7 @@ const WEAPON_STATS : Dictionary =  {
 		"crosshair" : crosshairAR,
 		"fireRate" : 480.0,
 		"damage" : 10
-	} ,
+		} ,
   	WEAPON.SHOTGUN:{
 		"crosshair" : crosshairShotgun,
 		"fireRate" : 60.0,
@@ -37,6 +36,7 @@ const WEAPON_STATS : Dictionary =  {
 @onready var shootTimer = $ShootTimer
 @onready var ui = get_parent().get_node('UI')
 @onready var deathNoise = $"8BitplayerDeathNoise"
+
 
 @export var SPEED = 10
 @export var bulletColor = Color("ffd702")
@@ -175,6 +175,7 @@ func shoot(bulletData):
 		var dir = (get_global_mouse_position() - barrel.global_position).normalized()
 		blt.direction = dir
 		blt.z_index = 2 if bulletAbove else 0
+		$"16Bitassaultrifleshot".play()
 		get_parent().add_child(blt)
 	else:
 		if ammoCount[currentWeapon] > 0:
@@ -202,8 +203,9 @@ func shoot(bulletData):
 					blt.speed = blt.speed
 					blt.direction = dir
 					blt.z_index = 2 if bulletAbove else 0
+					
 					get_parent().add_child(blt)
-
+				$"16BitShotgunblast".play()
 			else: # sniper
 				var dir = (get_global_mouse_position() - barrel.global_position).normalized()
 			
@@ -216,9 +218,10 @@ func shoot(bulletData):
 				blt.direction = dir
 				blt.z_index = 2 if bulletAbove else 0
 				get_parent().add_child(blt)
+				$"16Bitsnipershot".play()
 			ammoCount[currentWeapon] -= 1
 		else:
-			print('empty noise')
+			$NoBulletsClick.play()
 
 	
 

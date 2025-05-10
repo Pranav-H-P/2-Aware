@@ -1,10 +1,16 @@
-[gd_scene load_steps=7 format=3 uid="uid://cktljovo4w0pb"]
+[gd_scene load_steps=13 format=3 uid="uid://cktljovo4w0pb"]
 
 [ext_resource type="Script" uid="uid://c7xmlwopmfclm" path="res://scripts/player.gd" id="1_d16bx"]
 [ext_resource type="Texture2D" uid="uid://bgob8pjrdd0h5" path="res://assets/sprites/spritesheetBlueSoldier.png" id="1_jymnx"]
+[ext_resource type="AudioStream" uid="uid://dx14frewkpd33" path="res://assets/soundEffects/16bitassaultrifleshot.mp3" id="2_pgw6w"]
 [ext_resource type="AnimationLibrary" uid="uid://cydyrf48yqel" path="res://animations/playerAnims.tres" id="3_1b2qv"]
+[ext_resource type="AudioStream" uid="uid://cywl55kxc6atx" path="res://assets/soundEffects/16bitShotgunblast.mp3" id="3_a66cn"]
 [ext_resource type="Script" uid="uid://bnjnp47t8qlee" path="res://scripts/dynamicCamera.gd" id="3_x4r3j"]
+[ext_resource type="AudioStream" uid="uid://dpk8upflf50ni" path="res://assets/soundEffects/16bitshotgunreload.mp3" id="4_qkc5w"]
 [ext_resource type="AudioStream" uid="uid://dea2sx6xji7gn" path="res://assets/soundEffects/8bitplayerDeathNoise.mp3" id="5_u71v6"]
+[ext_resource type="AudioStream" uid="uid://f2862x5jxegt" path="res://assets/soundEffects/16bitsniperreload.mp3" id="5_v54eb"]
+[ext_resource type="AudioStream" uid="uid://54y5ibwx73xq" path="res://assets/soundEffects/no_bullets_click.mp3" id="6_b5sd1"]
+[ext_resource type="AudioStream" uid="uid://coh3v1nbhy3v8" path="res://assets/soundEffects/16bitsnipershot.mp3" id="6_e7i14"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jymnx"]
 size = Vector2(21, 41)
@@ -12,6 +18,21 @@ size = Vector2(21, 41)
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 z_index = 1
 script = ExtResource("1_d16bx")
+
+[node name="16Bitassaultrifleshot" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_pgw6w")
+
+[node name="16BitShotgunblast" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_a66cn")
+
+[node name="16Bitshotgunreload" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_qkc5w")
+
+[node name="16Bitsniperreload" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_v54eb")
+
+[node name="16Bitsnipershot" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_e7i14")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
@@ -40,9 +61,14 @@ one_shot = true
 [node name="barrel" type="Node2D" parent="."]
 position = Vector2(-14, -1)
 
-[node name="8BitplayerDeathNoise" type="AudioStreamPlayer" parent="."]
+[node name="8BitplayerDeathNoise" type="AudioStreamPlayer2D" parent="."]
 process_mode = 3
 stream = ExtResource("5_u71v6")
 bus = &"Sfx"
+
+[node name="gunSounds" type="AudioStreamPlayer2D" parent="."]
+
+[node name="NoBulletsClick" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_b5sd1")
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

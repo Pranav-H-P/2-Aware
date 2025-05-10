@@ -1,7 +1,8 @@
-[gd_scene load_steps=15 format=3 uid="uid://cj7a52kxwkod8"]
+[gd_scene load_steps=16 format=3 uid="uid://cj7a52kxwkod8"]
 
 [ext_resource type="Script" uid="uid://gguuce3b0xq8" path="res://scripts/ui.gd" id="1_vuwep"]
 [ext_resource type="Texture2D" uid="uid://dmy5t4hq3stg" path="res://assets/images/SoldierHealthImg.png" id="2_57650"]
+[ext_resource type="AudioStream" uid="uid://voyogr6v4oqw" path="res://assets/soundEffects/menuClickAlt.mp3" id="2_xixnr"]
 [ext_resource type="Theme" uid="uid://ceqvfoysx3ldy" path="res://themes/HealthbarTheme.tres" id="3_fkvgw"]
 [ext_resource type="Texture2D" uid="uid://bl7xpa1x1iej0" path="res://assets/sprites/ShotgunAmmo.png" id="4_i4ib3"]
 [ext_resource type="Texture2D" uid="uid://cvnxbdq6ysh0d" path="res://assets/sprites/SniperAmmo.png" id="5_i2thu"]
@@ -15,6 +16,33 @@
 [sub_resource type="ImageTexture" id="ImageTexture_i4ib3"]
 
 [sub_resource type="ImageTexture" id="ImageTexture_i2thu"]
+
+[sub_resource type="Animation" id="Animation_xixnr"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../../../..:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../../../..:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_getjq"]
 resource_name = "failed_enter"
@@ -44,33 +72,6 @@ tracks/1/keys = {
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 
-[sub_resource type="Animation" id="Animation_xixnr"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("../../../..:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("../../../..:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xixnr"]
 _data = {
 &"RESET": SubResource("Animation_xixnr"),
@@ -80,6 +81,9 @@ _data = {
 [node name="UI" type="CanvasLayer"]
 process_mode = 3
 script = ExtResource("1_vuwep")
+
+[node name="MenuClickAlt" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_xixnr")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3

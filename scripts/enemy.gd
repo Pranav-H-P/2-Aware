@@ -49,6 +49,11 @@ const ALIEN_DATA:Dictionary = {
 @export var SPEED = 5
 @export var bulletColor = Color("26ff00")
 @export var bulletSpeed = 2
+@onready var shootsounds = [
+	$"16Bitassaultrifleshot",
+	$"16BitShotgunblast",
+	$"16Bitsnipershot"
+]
 
 var bulletAbove = false
 
@@ -70,6 +75,7 @@ func _physics_process(delta: float) -> void:
 	if health <= 0:
 		$DeathNoise.play()
 		animationPlayer.play("death")
+		set_physics_process(false)
 		
 	
 	elif !DialogManager.cutsceneActive:
@@ -118,6 +124,7 @@ func shoot():
 			var dir = (player.global_position - barrel.global_position).normalized()
 			blt.direction = dir
 			blt.z_index = 2 if bulletAbove else 0
+			shootsounds[alienType].play()
 			get_parent().add_child(blt)
 		ALIEN_TYPE.SHOTGUN:
 			
@@ -139,8 +146,10 @@ func shoot():
 				blt.speed = bulletSpeed
 				blt.direction = dir
 				blt.z_index = 2 if bulletAbove else 0
+				
 				get_parent().add_child(blt)
-
+			shootsounds[alienType].play()
+			
 		ALIEN_TYPE.SNIPER:
 			var dir = (player.global_position - barrel.global_position).normalized()
 		
@@ -152,6 +161,7 @@ func shoot():
 			blt.speed = bulletSpeed*2
 			blt.direction = dir
 			blt.z_index = 2 if bulletAbove else 0
+			shootsounds[alienType].play()
 			get_parent().add_child(blt)
 
 

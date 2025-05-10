@@ -24,15 +24,18 @@ func _input(event: InputEvent) -> void:
 
 
 func _on_exit_pressed() -> void:
+	$MenuClickAlt.play()
 	warningText.text = 'Progress will be lost! Close Game?'
 	animationPlayer.play('warning_enter')
 
 
 func _on_close_warning_pressed() -> void:
+	$MenuBack.play()
 	animationPlayer.play_backwards('warning_enter')
 
 
 func _on_confirm_action_pressed() -> void:
+	$MenuClickAlt.play()
 	if warningText.text == 'Progress will be lost! Close Game?':
 		get_tree().quit()
 	elif warningText.text == 'Progress will be lost! Restart Level?':
@@ -44,22 +47,25 @@ func _on_confirm_action_pressed() -> void:
 	animationPlayer.play_backwards('warning_enter')
 
 func _on_continue_pressed() -> void:
+	$MenuClickAlt.play()
 	get_tree().paused = false
 	animationPlayer.play_backwards("pausemenu_enter")
 
 
 func _on_menu_pressed() -> void:
+	$MenuClickAlt.play()
 	warningText.text = 'Progress will be lost! Exit to Menu?'
 	animationPlayer.play('warning_enter')
 
 
 func _on_restart_pressed() -> void:
+	$MenuClickAlt.play()
 	warningText.text = 'Progress will be lost! Restart Level?'
 	animationPlayer.play('warning_enter')
 
 
 func _on_settings_pressed() -> void:
-	
+	$MenuClickAlt.play()
 	sfxVolumeSlider.value = DataService.getGlobalSettings()['sfxVolume']
 	masterVolumeSlider.value = DataService.getGlobalSettings()['masterVolume']
 	musicVolumeSlider.value = DataService.getGlobalSettings()['musicVolume']
@@ -87,4 +93,5 @@ func _on_master_slider_value_changed(value: float) -> void:
 
 
 func _on_back_pressed() -> void:
+	$MenuBack.play()
 	animationPlayer.play_backwards("settings_enter")

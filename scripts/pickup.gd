@@ -13,6 +13,7 @@ const sprites = [
 	]
 
 @onready var sprite = $Sprite2D
+@onready var soundEffects = [$HealthPickup, $ShotgunPickup, $SniperPickup]
 
 @export var incValue = 10
 
@@ -38,8 +39,16 @@ func _on_body_entered(body: Node2D) -> void:
 				if body.health < 100:
 					
 					body.health = clamp(incValue + body.health, 0, 100)
-					queue_free()
+					soundEffects[type].play()
+					visible=false
+					$CollisionShape2D.disabled = true
 			_:
 				body.ammoCount[type]+= incValue
-				queue_free()
+				soundEffects[type].play()
+				visible=false
+				$CollisionShape2D.disabled = true
 		
+
+
+func _on_pickup_finished() -> void:
+	queue_free()

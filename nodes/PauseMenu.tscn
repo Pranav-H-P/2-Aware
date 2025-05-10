@@ -1,8 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://dlpc630p2pmrc"]
+[gd_scene load_steps=11 format=3 uid="uid://dlpc630p2pmrc"]
 
 [ext_resource type="Script" uid="uid://c77166l183n7o" path="res://scripts/pauseMenu.gd" id="1_bdydk"]
 [ext_resource type="Theme" uid="uid://bxb15ddvju7oh" path="res://themes/UITheme.tres" id="1_lilov"]
 [ext_resource type="StyleBox" uid="uid://5rqon60jenmh" path="res://themes/DefaultPanelStyleBox.tres" id="2_d2j3l"]
+[ext_resource type="AudioStream" uid="uid://hxta77cwtlf3" path="res://assets/soundEffects/menuBack.mp3" id="2_dh4ta"]
+[ext_resource type="AudioStream" uid="uid://voyogr6v4oqw" path="res://assets/soundEffects/menuClickAlt.mp3" id="4_buk4m"]
 
 [sub_resource type="Animation" id="Animation_g3bgu"]
 length = 0.001
@@ -174,6 +176,12 @@ _data = {
 [node name="PauseMenu" type="CanvasLayer"]
 process_mode = 3
 script = ExtResource("1_bdydk")
+
+[node name="MenuBack" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_dh4ta")
+
+[node name="MenuClickAlt" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_buk4m")
 
 [node name="Control" type="Control" parent="."]
 process_mode = 3

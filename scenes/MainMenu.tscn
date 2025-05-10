@@ -1,14 +1,26 @@
-[gd_scene load_steps=7 format=3 uid="uid://c15scsedsi82f"]
+[gd_scene load_steps=10 format=3 uid="uid://c15scsedsi82f"]
 
 [ext_resource type="Script" uid="uid://d15lxoa5vxcxy" path="res://scripts/mainMenu.gd" id="1_yqorp"]
 [ext_resource type="Texture2D" uid="uid://bh7wik5kdtm2n" path="res://assets/images/titlescreen.png" id="2_0ykhv"]
+[ext_resource type="AudioStream" uid="uid://hxta77cwtlf3" path="res://assets/soundEffects/menuBack.mp3" id="2_mipys"]
 [ext_resource type="Theme" uid="uid://bxb15ddvju7oh" path="res://themes/UITheme.tres" id="3_2wh52"]
+[ext_resource type="AudioStream" uid="uid://b36j0iv0l2r3i" path="res://assets/soundEffects/menuclick.mp3" id="3_8a8k8"]
+[ext_resource type="AudioStream" uid="uid://voyogr6v4oqw" path="res://assets/soundEffects/menuClickAlt.mp3" id="4_8a8k8"]
 [ext_resource type="AnimationLibrary" uid="uid://smvlpvsjh75c" path="res://animations/mainMenuAnims.tres" id="4_826wr"]
 [ext_resource type="AudioStream" uid="uid://dreoaaw70kv0s" path="res://assets/music/MainMenu.mp3" id="4_ow34m"]
 [ext_resource type="FontFile" uid="uid://ddf2lqonu2e6w" path="res://assets/fonts/Iceland-Regular.ttf" id="5_l72w3"]
 
 [node name="MainMenu" type="CanvasLayer"]
 script = ExtResource("1_yqorp")
+
+[node name="MenuBack" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_mipys")
+
+[node name="MenuClick" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_8a8k8")
+
+[node name="MenuClickAlt" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_8a8k8")
 
 [node name="BackgroundImg" type="TextureRect" parent="."]
 modulate = Color(1, 1, 1, 0)

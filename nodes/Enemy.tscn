@@ -1,8 +1,11 @@
-[gd_scene load_steps=16 format=3 uid="uid://dfpyulrjnhqiu"]
+[gd_scene load_steps=19 format=3 uid="uid://dfpyulrjnhqiu"]
 
 [ext_resource type="Texture2D" uid="uid://cpaslwto7lxo2" path="res://assets/sprites/spritesheetAlien.png" id="1_0y70j"]
 [ext_resource type="Script" uid="uid://nh4oijnhq0ri" path="res://scripts/enemy.gd" id="1_tq0nw"]
+[ext_resource type="AudioStream" uid="uid://dx14frewkpd33" path="res://assets/soundEffects/16bitassaultrifleshot.mp3" id="2_v351y"]
 [ext_resource type="AudioStream" uid="uid://d2lnltwmwoo6s" path="res://assets/soundEffects/16bitalienExplosionNoise.mp3" id="3_h385e"]
+[ext_resource type="AudioStream" uid="uid://cywl55kxc6atx" path="res://assets/soundEffects/16bitShotgunblast.mp3" id="3_n4kec"]
+[ext_resource type="AudioStream" uid="uid://coh3v1nbhy3v8" path="res://assets/soundEffects/16bitsnipershot.mp3" id="4_7qh8e"]
 
 [sub_resource type="Animation" id="Animation_d16bx"]
 length = 0.001
@@ -297,6 +300,18 @@ motion_mode = 1
 wall_min_slide_angle = 0.0
 script = ExtResource("1_tq0nw")
 
+[node name="16Bitassaultrifleshot" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_v351y")
+volume_db = -15.0
+
+[node name="16BitShotgunblast" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_n4kec")
+volume_db = -15.0
+
+[node name="16Bitsnipershot" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_7qh8e")
+volume_db = -15.0
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
 texture = ExtResource("1_0y70j")
@@ -331,6 +346,7 @@ autostart = true
 
 [node name="DeathNoise" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_h385e")
+volume_db = 5.0
 attenuation = 0.0384732
 bus = &"Sfx"
 

@@ -16,3 +16,5 @@ using https://elevenlabs.io/app/sound-effects/generate
 > 8-bit punch sound, not cartoonish, very serious punch
 > 16-bit massive sci-fi space lazer blast
 > 16-bit game character talking sound effect single note
+> 16-bit game bullets pickup sound
+> Menu back button click sound

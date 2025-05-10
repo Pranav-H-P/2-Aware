@@ -12,12 +12,14 @@ size = Vector2(8, 8)
 collision_mask = 5
 script = ExtResource("1_uyh8a")
 
-[node name="16BitBulletHittingPerson" type="AudioStreamPlayer" parent="."]
+[node name="16BitBulletHittingPerson" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("2_q0o1u")
+volume_db = -10.0
 bus = &"Sfx"
 
-[node name="16BitBulletHittingWall" type="AudioStreamPlayer" parent="."]
+[node name="16BitBulletHittingWall" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_65wxn")
+volume_db = -10.0
 bus = &"Sfx"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

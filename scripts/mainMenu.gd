@@ -173,6 +173,7 @@ func showWarningPopup(reason):
 		warningPopupText.text = 'Your Progress Will Be LOST!\nOlder Bugs May Be Reintroduced!'
 		
 func _on_flash_card_button_pressed() -> void:
+	$MenuClickAlt.play()
 	currentFlashcard += 1
 	hideFlashCard()
 
@@ -195,6 +196,7 @@ func showNewGamePopup():
 	animations.play("newgame_popup_enter")
 
 func _on_play_pressed() -> void:
+	$MenuClick.play()
 	if playTextButton.text == 'New Game':
 		showNewGamePopup()
 	else:
@@ -202,11 +204,13 @@ func _on_play_pressed() -> void:
 
 
 func _on_settings_pressed() -> void:
+	$MenuClick.play()
 	cardAnimList.push_back([buttonCardNameEnum.SETTINGS,'show'])
 	cardAnimList.push_back([buttonCardNameEnum.MAIN,'hide'])
 
 
 func _on_credits_pressed() -> void:
+	$MenuClick.play()
 	cardAnimList.push_back([buttonCardNameEnum.CREDITS,'show'])
 	cardAnimList.push_back([buttonCardNameEnum.MAIN,'hide'])
 
@@ -217,6 +221,7 @@ func _on_exit_pressed() -> void:
 
 
 func _on_back_pressed() -> void:
+	$MenuBack.play()
 	DataService.saveSettings()
 	cardAnimList.push_back([buttonCardNameEnum.SETTINGS,'hide'])
 	cardAnimList.push_back([buttonCardNameEnum.CREDITS,'hide'])
@@ -228,10 +233,12 @@ func _on_credits_text_meta_clicked(meta: Variant) -> void:
 
 
 func _on_delete_save_file_pressed() -> void:
+	$MenuClick.play()
 	showWarningPopup('SAVE')
 
 
 func _on_uninstall_update_pressed() -> void:
+	$MenuClick.play()
 	showWarningPopup('UPDATE')
 
 
@@ -254,10 +261,12 @@ func _on_master_slider_value_changed(value: float) -> void:
 
 
 func _on_close_warning_pressed() -> void:
+	$MenuBack.play()
 	animations.play("warning_popup_exit")
 
 
 func _on_confirm_action_pressed() -> void:
+	$MenuClickAlt.play()
 	if warningPopupText.text == 'Your Progress Will Be LOST!':
 		DataService.eraseAndReloadUserData()
 	else:
@@ -270,11 +279,13 @@ func _on_confirm_action_pressed() -> void:
 
 
 func _on_close_new_game_pressed() -> void:
+	$MenuBack.play()
 	animations.play_backwards("newgame_popup_enter")
 
 
 func _on_start_new_game_pressed() -> void:
 	if !playerName.is_empty():
+		$MenuClickAlt.play()
 		DataService.userSaveData['name'] = playerName
 		DataService.userSaveData['level'] = 1
 		DataService.saveUserData()
