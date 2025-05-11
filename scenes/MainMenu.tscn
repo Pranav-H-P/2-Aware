@@ -196,15 +196,6 @@ theme_override_font_sizes/font_size = 50
 text = "New Game"
 alignment = 0
 
-[node name="Settings" type="Button" parent="MenuElements/MainButtonCard/MarginContainer/VBoxContainer"]
-layout_mode = 2
-theme = ExtResource("3_2wh52")
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 2
-theme_override_font_sizes/font_size = 50
-text = "Settings"
-alignment = 0
-
 [node name="Help" type="Button" parent="MenuElements/MainButtonCard/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("3_2wh52")
@@ -212,6 +203,15 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 2
 theme_override_font_sizes/font_size = 50
 text = "Tutorial"
+alignment = 0
+
+[node name="Settings" type="Button" parent="MenuElements/MainButtonCard/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_2wh52")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 50
+text = "Settings"
 alignment = 0
 
 [node name="Credits" type="Button" parent="MenuElements/MainButtonCard/MarginContainer/VBoxContainer"]
@@ -676,8 +676,8 @@ alignment = 0
 [connection signal="pressed" from="FlashCard/PanelContainer/MarginContainer/VBoxContainer/Button" to="." method="_on_flash_card_button_pressed"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="pressed" from="MenuElements/MainButtonCard/MarginContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
-[connection signal="pressed" from="MenuElements/MainButtonCard/MarginContainer/VBoxContainer/Settings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="MenuElements/MainButtonCard/MarginContainer/VBoxContainer/Help" to="." method="_on_help_pressed"]
+[connection signal="pressed" from="MenuElements/MainButtonCard/MarginContainer/VBoxContainer/Settings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="MenuElements/MainButtonCard/MarginContainer/VBoxContainer/Credits" to="." method="_on_credits_pressed"]
 [connection signal="pressed" from="MenuElements/MainButtonCard/MarginContainer/VBoxContainer/Exit" to="." method="_on_exit_pressed"]
 [connection signal="pressed" from="MenuElements/HelpButtonCard/PanelContainer/MarginContainer/VBoxContainer/Back" to="." method="_on_back_pressed"]

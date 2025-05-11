@@ -2,7 +2,6 @@ extends CanvasLayer
 
 
 signal OptionSelected(OptionData)
-signal ShowDialogEnded()
 
 const characterImages = {
 	"SoldierBlue": preload("res://assets/images/BlueSoldierDialog.png"),
@@ -22,9 +21,9 @@ const fonts = {
 	"aware": preload("res://assets/fonts/Jersey20-Regular.ttf")
 }
 
-const punctTime = 0.3
-const spaceTime = 0.1
-const charTime = 0.05
+const punctTime = 0.1
+const spaceTime = 0.07
+const charTime = 0.025
 
 @onready var box =  $Control
 @onready var animationPlayer = $AnimationPlayer
@@ -61,6 +60,7 @@ func startCutscene():
 func endCutscene():
 	cutsceneActive = false
 	get_tree().paused = false
+	letterTimer.stop()
 	closeBox()
 
 func openBox():
@@ -72,6 +72,7 @@ func closeBox():
 		animationPlayer.play_backwards("show_box")
 	
 func showOptions(optionData):
+	letterTimer.stop()
 	characterSprite.texture = null
 	optionBox.visible = true
 	textBox.text = ""
@@ -81,6 +82,7 @@ func showOptions(optionData):
 	
 func showDialog(dialog:String, spriteName = "SoldierGreen", basePitch = 1.0):
 	
+	letterTimer.stop()
 	optionBox.visible = false
 	toDisplay = dialog
 	
@@ -99,6 +101,8 @@ func showDialog(dialog:String, spriteName = "SoldierGreen", basePitch = 1.0):
 	sounds.pitch_scale = basePitch
 	
 	letterTimer.wait_time = charTime
+	if toDisplay == "":
+		return
 	if toDisplay.length() > textBox.text.length() :
 		letterTimer.start()
 	
@@ -116,12 +120,14 @@ func getBBCodeEnclosedChar(ch):
 	return final
 	
 func _on_letter_timer_timeout() -> void:
+	if textBox.text.length() >= toDisplay.length():
+		return
 	var ch = toDisplay[textBox.text.length()]
 	var final = getBBCodeEnclosedChar(ch)
 	
 	var basePitch = sounds.pitch_scale
 	match final[-1]:
-		'.','!',',','?':
+		'.','!',',','?','-':
 			letterTimer.wait_time = punctTime
 		' ':
 			letterTimer.wait_time = spaceTime
@@ -139,8 +145,6 @@ func _on_letter_timer_timeout() -> void:
 	
 	if textBox.text.length() < toDisplay.length():
 		letterTimer.start()
-	else:
-		ShowDialogEnded.emit()
 
 func _on_mouse_entered() -> void:
 	

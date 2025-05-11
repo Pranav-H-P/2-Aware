@@ -173,6 +173,7 @@ one_shot = true
 
 [node name="SpeechSoundEffect" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_jn4qr")
+volume_db = -7.0
 bus = &"Sfx"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

@@ -41,6 +41,7 @@ func _ready() -> void:
 	
 	loadSaveData()
 	loadGlobalSettings()
+	print(userSaveData)
 	
 func loadSaveData():
 	var tempSaveData = loadJson(userSavePath)

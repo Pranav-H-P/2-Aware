@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://bqhp3c0y0kx3r"]
+
+[ext_resource type="Script" uid="uid://bqnpk0lfobtqd" path="res://scripts/glitchEffect.gd" id="1_3m4id"]
+[ext_resource type="Texture2D" uid="uid://b0mkwvw3fad3r" path="res://animations/GlitchEffect.tres" id="2_uhjmr"]
+
+[node name="GlitchEffect" type="CanvasLayer"]
+layer = 128
+script = ExtResource("1_3m4id")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+visible = false
+self_modulate = Color(1, 1, 1, 0.372549)
+texture_filter = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("2_uhjmr")

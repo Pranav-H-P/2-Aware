@@ -4,7 +4,7 @@ extends CanvasLayer
 const flashCardMessages = [
 	"""[color=cyan][b]Congratulations![/b][/color]
 	
-	You've been selected for our exclusive closed beta!
+	You've been selected for our exclusive closed alpha!
 	Your experiences and feedback will shape the future of the game.
 	Feel free to contact us in case of any bugs/glitches""",
 	"Live Reloading Enabled!",

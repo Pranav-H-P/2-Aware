@@ -1,0 +1,17 @@
+[gd_resource type="AnimatedTexture" load_steps=5 format=3 uid="uid://b0mkwvw3fad3r"]
+
+[ext_resource type="Texture2D" uid="uid://ckd13juuwyvmd" path="res://assets/images/Glitch1.png" id="1_kxmnh"]
+[ext_resource type="Texture2D" uid="uid://qg8k8rrhp1xt" path="res://assets/images/Glitch2.png" id="2_6nkdt"]
+[ext_resource type="Texture2D" uid="uid://blpvkec2yphok" path="res://assets/images/Glitch3.png" id="3_5rghp"]
+[ext_resource type="Texture2D" uid="uid://dsbyqmvv0vxmp" path="res://assets/images/Glitch4.png" id="4_jxgas"]
+
+[resource]
+frames = 4
+frame_0/texture = ExtResource("1_kxmnh")
+frame_0/duration = 0.1
+frame_1/texture = ExtResource("2_6nkdt")
+frame_1/duration = 0.1
+frame_2/texture = ExtResource("3_5rghp")
+frame_2/duration = 0.1
+frame_3/texture = ExtResource("4_jxgas")
+frame_3/duration = 0.1
