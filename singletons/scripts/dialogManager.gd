@@ -1,6 +1,8 @@
 extends CanvasLayer
 
 
+signal OptionSelected(OptionData)
+signal NextDialog()
 
 const characterImages = {
 	"SoldierBlue": preload("res://assets/images/BlueSoldierDialog.png"),
@@ -27,18 +29,34 @@ const charTime = 0.05
 @onready var animationPlayer = $AnimationPlayer
 @onready var letterTimer = $LetterTimer
 @onready var sounds = $SpeechSoundEffect
-@onready var textBox = $Control/VBoxContainer/Panel/MarginContainer/RichTextLabel
+@onready var textBox = $Control/VBoxContainer/Panel/MarginContainer/RegularText
+@onready var optionBox = $Control/VBoxContainer/Panel/MarginContainer/OptionBox
+@onready var characterSprite = $Control/VBoxContainer/MarginContainer/TextureRect
 
 var cutsceneActive = false
 
 var toDisplay = []
 
+var currentOptionData = [
+	{
+		"text": 'optn 1',
+		"goTo": 0
+	},
+	{
+		"text": 'optn 2',
+		"goTo": 0
+	}
+]
 
 func _ready() -> void:
 	letterTimer.one_shot = true
 	openBox()
-	showDialog('testing [shake level=5]aaaah[/shake] oooo ........ lmao',
-	"SoldierGreen", 1)
+	showOptions([
+		{'text':'hi'},
+		{'text':'bye'}
+	])
+	#showDialog('testing [shake level=5]aaaah[/shake] oooo ........ lmao',
+	#"IntelNormal", 1)
 
 func startCutscene():
 	cutsceneActive = true
@@ -58,22 +76,31 @@ func closeBox():
 	if box.visible:
 		animationPlayer.play_backwards("show_box")
 	
-
+func showOptions(optionData):
+	characterSprite.texture = null
+	optionBox.visible = true
+	textBox.text = ""
+	$Control/VBoxContainer/Panel/MarginContainer/OptionBox/Option1.text = optionData[0]['text']
+	$Control/VBoxContainer/Panel/MarginContainer/OptionBox/Option2.text = optionData[1]['text']
+	currentOptionData = optionData
+	
 func showDialog(dialog:String, character = "SoldierGreen", basePitch = 1.0, font = "default"):
 	
+	optionBox.visible = false
 	toDisplay = dialog
 	
 	textBox.text = ""
 	
+	characterSprite.texture = characterImages[character]
 	sounds.pitch_scale = basePitch
 	
-	textBox.text += toDisplay[textBox.text.length()]
+	letterTimer.wait_time = charTime
 	if toDisplay.length() > textBox.text.length() :
 		letterTimer.start()
 	
 func getBBCodeEnclosedChar(char):
 	var final = char
-	if char == '[': #add bbcode processing
+	if char == '[':
 		final = "["
 		var i = 1
 		while (final[-1] != ']'):
@@ -85,7 +112,6 @@ func getBBCodeEnclosedChar(char):
 	return final
 	
 func _on_letter_timer_timeout() -> void:
-	print("called")
 	var char = toDisplay[textBox.text.length()]
 	var final = getBBCodeEnclosedChar(char)
 	
@@ -109,7 +135,8 @@ func _on_letter_timer_timeout() -> void:
 	
 	if textBox.text.length() < toDisplay.length():
 		letterTimer.start()
-
+	else:
+		NextDialog.emit()
 
 func _on_mouse_entered() -> void:
 	
@@ -123,3 +150,11 @@ func _on_mouse_exited() -> void:
 	if !(Rect2(Vector2(),$Control/VBoxContainer.size)).has_point($Control/VBoxContainer.get_local_mouse_position()):
 		
 		box.modulate = Color(1,1,1,1)
+
+
+func _on_option_1_pressed() -> void:
+	OptionSelected.emit(currentOptionData[0])
+
+func _on_option_2_pressed() -> void:
+	OptionSelected.emit(currentOptionData[1])
+	

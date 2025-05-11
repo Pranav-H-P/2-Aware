@@ -121,7 +121,7 @@ theme_override_constants/margin_top = 25
 theme_override_constants/margin_right = 50
 theme_override_constants/margin_bottom = 10
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Control/VBoxContainer/Panel/MarginContainer"]
+[node name="RegularText" type="RichTextLabel" parent="Control/VBoxContainer/Panel/MarginContainer"]
 custom_minimum_size = Vector2(1750, 250)
 layout_mode = 2
 size_flags_vertical = 0
@@ -136,8 +136,36 @@ theme_override_font_sizes/mono_font_size = 80
 theme_override_font_sizes/normal_font_size = 80
 theme_override_font_sizes/bold_font_size = 80
 bbcode_enabled = true
-text = "testing {color=cyan}aaaah{/color} oooo ........ lmao"
 scroll_following = true
+autowrap_mode = 2
+
+[node name="OptionBox" type="HBoxContainer" parent="Control/VBoxContainer/Panel/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Option1" type="Button" parent="Control/VBoxContainer/Panel/MarginContainer/OptionBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme = ExtResource("3_2so1l")
+theme_override_fonts/font = ExtResource("4_pxneb")
+theme_override_font_sizes/font_size = 80
+text = "Option1 Option 1 Optio n1 Opti on1 Option 1 Option1 "
+alignment = 0
+text_overrun_behavior = 3
+autowrap_mode = 2
+clip_text = true
+
+[node name="Option2" type="Button" parent="Control/VBoxContainer/Panel/MarginContainer/OptionBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme = ExtResource("3_2so1l")
+theme_override_fonts/font = ExtResource("4_pxneb")
+theme_override_font_sizes/font_size = 80
+text = "Option1 Option1 Option1 "
+alignment = 0
+text_overrun_behavior = 3
 autowrap_mode = 2
 
 [node name="LetterTimer" type="Timer" parent="."]
@@ -154,4 +182,6 @@ libraries = {
 
 [connection signal="mouse_entered" from="Control/VBoxContainer" to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Control/VBoxContainer" to="." method="_on_mouse_exited"]
+[connection signal="pressed" from="Control/VBoxContainer/Panel/MarginContainer/OptionBox/Option1" to="." method="_on_option_1_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/Panel/MarginContainer/OptionBox/Option2" to="." method="_on_option_2_pressed"]
 [connection signal="timeout" from="LetterTimer" to="." method="_on_letter_timer_timeout"]
