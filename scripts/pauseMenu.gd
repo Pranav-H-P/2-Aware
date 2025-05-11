@@ -13,8 +13,9 @@ func _ready() -> void:
 	
 
 func _input(event: InputEvent) -> void:
-
+	
 	if event.is_action_pressed("pause") && !DialogManager.cutsceneActive:
+		
 		if get_tree().paused:
 			get_tree().paused = false
 			animationPlayer.play_backwards("pausemenu_enter")
