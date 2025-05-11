@@ -2,7 +2,7 @@ extends CanvasLayer
 
 
 signal OptionSelected(OptionData)
-signal NextDialog()
+signal ShowDialogEnded()
 
 const characterImages = {
 	"SoldierBlue": preload("res://assets/images/BlueSoldierDialog.png"),
@@ -50,13 +50,7 @@ var currentOptionData = [
 
 func _ready() -> void:
 	letterTimer.one_shot = true
-	openBox()
-	showOptions([
-		{'text':'hi'},
-		{'text':'bye'}
-	])
-	#showDialog('testing [shake level=5]aaaah[/shake] oooo ........ lmao',
-	#"IntelNormal", 1)
+	
 
 func startCutscene():
 	cutsceneActive = true
@@ -136,7 +130,7 @@ func _on_letter_timer_timeout() -> void:
 	if textBox.text.length() < toDisplay.length():
 		letterTimer.start()
 	else:
-		NextDialog.emit()
+		ShowDialogEnded.emit()
 
 func _on_mouse_entered() -> void:
 	

@@ -24,6 +24,7 @@ DataService="*res://singletons/scripts/dataService.gd"
 SceneService="*res://singletons/nodes/SceneService.tscn"
 RngService="*res://singletons/scripts/RNGService.gd"
 DialogManager="*res://singletons/nodes/DialogManager.tscn"
+LevelMusicManager="*res://singletons/nodes/LevelMusicManager.tscn"
 
 [display]
 

@@ -41,7 +41,6 @@ enum buttonCardNameEnum {
 @onready var flashCard = $FlashCard
 @onready var flashCardTimer = $FlashCardTimer
 @onready var flashCardText = $FlashCard/PanelContainer/MarginContainer/VBoxContainer/RichTextLabel
-@onready var musicPlayer = $MainMenuMusic
 @onready var menuElements = $MenuElements
 @onready var creditsTextBox = $MenuElements/CreditsButtonCard/PanelContainer/MarginContainer/VBoxContainer/CreditsText
 @onready var playTextButton = $MenuElements/MainButtonCard/MarginContainer/VBoxContainer/Play
@@ -102,6 +101,7 @@ func setupDynamicUI():
 func _ready() -> void:
 	Input.set_custom_mouse_cursor(null)
 	SceneService.fadeIn()
+	LevelMusicManager.stopMusic()
 	allowedFlashcardCount = 3 if DataService.getGlobalSettings()['patched'] else 2
 	flashCard.visible = false
 	showFlashCard(flashCardMessages[currentFlashcard])
@@ -179,7 +179,7 @@ func _on_flash_card_button_pressed() -> void:
 
 func loadMainMenu():
 	animations.play('bg_fade_in')
-	musicPlayer.play()
+	LevelMusicManager.startMusic('MainMenu')
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name == 'flashcard_fade_out' && currentFlashcard < allowedFlashcardCount:

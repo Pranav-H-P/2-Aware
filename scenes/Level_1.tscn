@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://ch2vudqmrx1uy"]
+[gd_scene load_steps=16 format=4 uid="uid://ch2vudqmrx1uy"]
 
 [ext_resource type="Script" uid="uid://nj164md71o0r" path="res://scripts/level1.gd" id="1_bmqp6"]
 [ext_resource type="Texture2D" uid="uid://hp2yvk8n5gdl" path="res://assets/sprites/environmentTextures.png" id="1_qux8b"]
@@ -8,7 +8,6 @@
 [ext_resource type="Texture2D" uid="uid://ujodtgdubif1" path="res://assets/sprites/coverTextures.png" id="5_fxqaj"]
 [ext_resource type="PackedScene" uid="uid://dfpyulrjnhqiu" path="res://nodes/Enemy.tscn" id="6_d6w1m"]
 [ext_resource type="PackedScene" uid="uid://dlpc630p2pmrc" path="res://nodes/PauseMenu.tscn" id="7_kjrqm"]
-[ext_resource type="AudioStream" uid="uid://cpsodljvgkm8w" path="res://assets/music/Level 1.mp3" id="9_f63rn"]
 [ext_resource type="PackedScene" uid="uid://eivjwquf4n6w" path="res://nodes/ObjectiveMarker.tscn" id="10_rp28y"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5f7sk"]
@@ -443,10 +442,6 @@ position = Vector2(232, 137)
 alienType = 2
 
 [node name="PauseMenu" parent="." instance=ExtResource("7_kjrqm")]
-
-[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("9_f63rn")
-autoplay = true
 
 [node name="ObjectiveMarker" parent="." instance=ExtResource("10_rp28y")]
 position = Vector2(339, 0)
