@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://cxcjuvna66sw7"]
+
+[ext_resource type="Script" uid="uid://bejy7prbmo24c" path="res://scripts/levelChanger.gd" id="1_is1aq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_na4oh"]
+size = Vector2(80, 52)
+
+[node name="LevelChanger" type="Area2D"]
+collision_layer = 256
+collision_mask = 256
+script = ExtResource("1_is1aq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_na4oh")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

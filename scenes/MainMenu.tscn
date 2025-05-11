@@ -22,7 +22,7 @@ stream = ExtResource("3_8a8k8")
 stream = ExtResource("4_8a8k8")
 
 [node name="BackgroundImg" type="TextureRect" parent="."]
-modulate = Color(1, 1, 1, 0)
+modulate = Color(1, 1, 1, 0.994432)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -32,6 +32,8 @@ texture = ExtResource("2_0ykhv")
 expand_mode = 3
 
 [node name="FlashCard" type="Control" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0)
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -98,7 +100,6 @@ libraries = {
 [node name="FlashCardTimer" type="Timer" parent="."]
 
 [node name="MenuElements" type="Control" parent="."]
-modulate = Color(1, 1, 1, 0)
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -494,7 +495,6 @@ alignment = 0
 
 [node name="NewGamePopup" type="Control" parent="MenuElements"]
 visible = false
-modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -527,11 +527,12 @@ theme_override_constants/margin_top = 40
 theme_override_constants/margin_right = 75
 theme_override_constants/margin_bottom = 45
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MenuElements/NewGamePopup/PanelContainer/MarginContainer"]
+[node name="Unpatched" type="VBoxContainer" parent="MenuElements/NewGamePopup/PanelContainer/MarginContainer"]
+visible = false
 layout_mode = 2
 theme_override_constants/separation = 65
 
-[node name="RichTextLabel" type="RichTextLabel" parent="MenuElements/NewGamePopup/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="RichTextLabel" type="RichTextLabel" parent="MenuElements/NewGamePopup/PanelContainer/MarginContainer/Unpatched"]
 layout_mode = 2
 theme = ExtResource("3_2wh52")
 theme_override_font_sizes/normal_font_size = 60
@@ -540,17 +541,17 @@ text = "Enter Your Name"
 fit_content = true
 autowrap_mode = 0
 
-[node name="PlayerName" type="LineEdit" parent="MenuElements/NewGamePopup/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="PlayerName" type="LineEdit" parent="MenuElements/NewGamePopup/PanelContainer/MarginContainer/Unpatched"]
 layout_mode = 2
 theme = ExtResource("3_2wh52")
 placeholder_text = "Username"
 max_length = 15
 emoji_menu_enabled = false
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MenuElements/NewGamePopup/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MenuElements/NewGamePopup/PanelContainer/MarginContainer/Unpatched"]
 layout_mode = 2
 
-[node name="CloseNewGame" type="Button" parent="MenuElements/NewGamePopup/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="CloseNewGame" type="Button" parent="MenuElements/NewGamePopup/PanelContainer/MarginContainer/Unpatched/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("3_2wh52")
@@ -560,7 +561,7 @@ theme_override_font_sizes/font_size = 50
 text = "Cancel"
 alignment = 0
 
-[node name="StartNewGame" type="Button" parent="MenuElements/NewGamePopup/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="StartNewGame" type="Button" parent="MenuElements/NewGamePopup/PanelContainer/MarginContainer/Unpatched/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("3_2wh52")
@@ -568,6 +569,31 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 2
 theme_override_font_sizes/font_size = 50
 text = "Start!"
+alignment = 0
+
+[node name="Patched" type="VBoxContainer" parent="MenuElements/NewGamePopup/PanelContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 25
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MenuElements/NewGamePopup/PanelContainer/MarginContainer/Patched"]
+layout_mode = 2
+theme = ExtResource("3_2wh52")
+theme_override_font_sizes/normal_font_size = 60
+bbcode_enabled = true
+text = "Sorry! The latest  patch is not stable! 
+
+Please contact the devs!"
+fit_content = true
+autowrap_mode = 0
+
+[node name="CloseNewGame" type="Button" parent="MenuElements/NewGamePopup/PanelContainer/MarginContainer/Patched"]
+layout_mode = 2
+size_flags_horizontal = 6
+theme = ExtResource("3_2wh52")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 50
+text = "Close"
 alignment = 0
 
 [connection signal="pressed" from="FlashCard/PanelContainer/MarginContainer/VBoxContainer/Button" to="." method="_on_flash_card_button_pressed"]
@@ -586,6 +612,7 @@ alignment = 0
 [connection signal="pressed" from="MenuElements/CreditsButtonCard/PanelContainer/MarginContainer/VBoxContainer/Back" to="." method="_on_back_pressed"]
 [connection signal="pressed" from="MenuElements/WarningPopup/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/CloseWarning" to="." method="_on_close_warning_pressed"]
 [connection signal="pressed" from="MenuElements/WarningPopup/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/ConfirmAction" to="." method="_on_confirm_action_pressed"]
-[connection signal="text_changed" from="MenuElements/NewGamePopup/PanelContainer/MarginContainer/VBoxContainer/PlayerName" to="." method="_on_player_name_text_changed"]
-[connection signal="pressed" from="MenuElements/NewGamePopup/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/CloseNewGame" to="." method="_on_close_new_game_pressed"]
-[connection signal="pressed" from="MenuElements/NewGamePopup/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/StartNewGame" to="." method="_on_start_new_game_pressed"]
+[connection signal="text_changed" from="MenuElements/NewGamePopup/PanelContainer/MarginContainer/Unpatched/PlayerName" to="." method="_on_player_name_text_changed"]
+[connection signal="pressed" from="MenuElements/NewGamePopup/PanelContainer/MarginContainer/Unpatched/HBoxContainer/CloseNewGame" to="." method="_on_close_new_game_pressed"]
+[connection signal="pressed" from="MenuElements/NewGamePopup/PanelContainer/MarginContainer/Unpatched/HBoxContainer/StartNewGame" to="." method="_on_start_new_game_pressed"]
+[connection signal="pressed" from="MenuElements/NewGamePopup/PanelContainer/MarginContainer/Patched/CloseNewGame" to="." method="_on_close_new_game_pressed"]

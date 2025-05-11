@@ -3,6 +3,7 @@ extends AudioStreamPlayer
 
 const music = {
 	'MainMenu': preload("res://assets/music/MainMenu.mp3"),
+	'level_0':preload("res://assets/music/MilitaryMarch.mp3"),
 	'level_1': preload("res://assets/music/Level 1.mp3"),
 	'level_2': preload("res://assets/music/Level 2.mp3"),
 	'level_3': preload("res://assets/music/Level 3.mp3"),

@@ -58,6 +58,7 @@ func _ready() -> void:
 	shootTimer.one_shot = true
 	ammoCount[WEAPON.SHOTGUN] = DataService.getAmmoData()[0]
 	ammoCount[WEAPON.SNIPER] = DataService.getAmmoData()[1]
+	health = DataService.getHealth()
 	setWeapon(currentWeapon)
 
 func addAmmo(type: WEAPON, count : int):

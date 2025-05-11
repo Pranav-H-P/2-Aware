@@ -51,7 +51,9 @@ enum buttonCardNameEnum {
 @onready var sfxVolumeSlider = $MenuElements/SettingsButtonCard/PanelContainer/MarginContainer/VBoxContainer/SfxVolumeContainer/HSlider
 @onready var versionText = $MenuElements/TitleVersion
 @onready var warningPopupText = $MenuElements/WarningPopup/PanelContainer/MarginContainer/VBoxContainer/WarningReason
-@onready var playerNameInput = $MenuElements/NewGamePopup/PanelContainer/MarginContainer/VBoxContainer/PlayerName
+@onready var playerNameInput = $MenuElements/NewGamePopup/PanelContainer/MarginContainer/Unpatched/PlayerName
+@onready var newGameUnpatched = $MenuElements/NewGamePopup/PanelContainer/MarginContainer/Unpatched
+@onready var newGamePatched = $MenuElements/NewGamePopup/PanelContainer/MarginContainer/Patched
 
 @onready var mainButtonCard = $MenuElements/MainButtonCard
 @onready var settingsButtonCard = $MenuElements/SettingsButtonCard
@@ -193,6 +195,12 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 		animations.play("menu_fade_in")
 	
 func showNewGamePopup():
+	if DataService.getGlobalSettings()['patched']:
+		newGameUnpatched.visible = false
+		newGamePatched.visible = true
+	else:
+		newGameUnpatched.visible = true
+		newGamePatched.visible = false
 	animations.play("newgame_popup_enter")
 
 func _on_play_pressed() -> void:
@@ -287,9 +295,10 @@ func _on_start_new_game_pressed() -> void:
 	if !playerName.is_empty():
 		$MenuClickAlt.play()
 		DataService.userSaveData['name'] = playerName
-		DataService.userSaveData['level'] = 1
-		DataService.saveUserData()
-		SceneService.changeSceneWithFade("Level_"+str(int(DataService.getUserSaveData()['level'])))
+		
+		DataService.saveUserData(0)
+		
+		SceneService.changeSceneWithFade("Level_0")
 	else:
 		playerNameInput.placeholder_text = 'Cannot Be Empty!'
 

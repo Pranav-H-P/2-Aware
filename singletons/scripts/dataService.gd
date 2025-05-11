@@ -7,9 +7,10 @@ const globalSettingsPath := 'user://GlobalSettings.json' # preferences and other
 const userSaveDataTemplate := {
 	"level": 0,
 	"name": "",
+	"health": 100,
 	"ammo": [
-		50,
-		50
+		0,
+		0
 	]
 }
 const globalSettingsTemplate := {
@@ -22,9 +23,10 @@ const globalSettingsTemplate := {
 var userSaveData := {
 	"level": 0,
 	"name": '',
+	"health": 100,
 	"ammo": [
-		50,
-		50
+		0,
+		0
 	]
 }
 var globalSettings := {
@@ -86,8 +88,10 @@ func saveSettings():
 func getAmmoData():
 	return userSaveData['ammo']
 
-func saveUserData(shotgun = 0, sniper = 0):
+func saveUserData(level = 0, health = 100, shotgun = 0, sniper = 0):
 	userSaveData['ammo'] = [shotgun, sniper]
+	userSaveData['level'] = level
+	userSaveData['health'] = health
 	writeJson(userSavePath, userSaveData)
 
 func getGlobalSettings():
@@ -101,6 +105,9 @@ func eraseAndReloadUserData():
 	DirAccess.remove_absolute(userSavePath)
 	
 	loadSaveData()
+	
+func getHealth():
+	return userSaveData['health']
 	
 func removePatch():
 	globalSettings["patched"] = false
