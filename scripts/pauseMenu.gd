@@ -23,6 +23,7 @@ func _input(event: InputEvent) -> void:
 			animationPlayer.play("pausemenu_enter")
 
 
+
 func _on_exit_pressed() -> void:
 	$MenuClickAlt.play()
 	warningText.text = 'Progress will be lost! Close Game?'
