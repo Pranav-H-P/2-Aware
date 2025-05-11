@@ -19,6 +19,7 @@ fog_density = 0.623
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_dr37d"]
 
 [node name="Level0" type="Node2D"]
+texture_filter = 1
 script = ExtResource("1_ak6t6")
 
 [node name="Player" parent="." instance=ExtResource("2_d78do")]

@@ -56,7 +56,7 @@ func _on_exit_pressed() -> void:
 
 
 func _on_menu_pressed() -> void:
-	$MenuclickAlt.play()
+	$MenuClickAlt.play()
 	get_tree().paused = false
 	SceneService.changeSceneWithFade("MainMenu")
 
@@ -66,6 +66,6 @@ func showDeathScreen():
 	
 
 func _on_restart_pressed() -> void:
-	$MenuclickAlt.play()
+	$MenuClickAlt.play()
 	get_tree().paused = false
 	SceneService.reloadWithFade()

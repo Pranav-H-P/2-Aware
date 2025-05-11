@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://ch2vudqmrx1uy"]
+[gd_scene load_steps=22 format=4 uid="uid://ch2vudqmrx1uy"]
 
 [ext_resource type="Script" uid="uid://nj164md71o0r" path="res://scripts/level1.gd" id="1_bmqp6"]
 [ext_resource type="PackedScene" uid="uid://cktljovo4w0pb" path="res://nodes/Player.tscn" id="2_5f7sk"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://bybskwksdxdp8" path="res://assets/sprites/spritesheetIntel.png" id="11_crfhr"]
 [ext_resource type="AnimationLibrary" uid="uid://detro0ri5kj67" path="res://animations/IntelAnims.tres" id="12_a4osw"]
 [ext_resource type="AudioStream" uid="uid://bjcnujvxnckwn" path="res://assets/soundEffects/teleportation.mp3" id="13_l52ph"]
+[ext_resource type="Texture2D" uid="uid://duyous32r3xbn" path="res://assets/sprites/spritesheetPurpleSoldier.png" id="14_5viah"]
 
 [sub_resource type="Environment" id="Environment_bmqp6"]
 background_mode = 3
@@ -29,14 +30,50 @@ size = Vector2(23, 45)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l52ph"]
 size = Vector2(197, 83)
 
+[sub_resource type="Animation" id="Animation_5viah"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-148, 388)]
+}
+
+[sub_resource type="Animation" id="Animation_l52ph"]
+resource_name = "playerMove"
+length = 1.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-148, 388), Vector2(-148, 175)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5viah"]
+_data = {
+&"RESET": SubResource("Animation_5viah"),
+&"playerMove": SubResource("Animation_l52ph")
+}
+
 [node name="Level1" type="Node2D"]
 process_mode = 3
+texture_filter = 1
 script = ExtResource("1_bmqp6")
 
 [node name="Player" parent="." instance=ExtResource("2_5f7sk")]
-
-[node name="barrel" parent="Player" index="10"]
-position = Vector2(0, -1)
+position = Vector2(-148, 388)
 
 [node name="UI" parent="." instance=ExtResource("3_1tdkx")]
 
@@ -86,15 +123,21 @@ color = 3
 direction = 0
 
 [node name="GlitchTimer" type="Timer" parent="."]
+wait_time = 3.0
 one_shot = true
 
 [node name="GlitchEffect" parent="." instance=ExtResource("10_a4osw")]
 
 [node name="Intel" type="Area2D" parent="."]
-visible = false
 position = Vector2(-42, 53)
 
-[node name="Sprite2D" type="Sprite2D" parent="Intel"]
+[node name="SoldierSprite" type="Sprite2D" parent="Intel"]
+visible = false
+texture = ExtResource("14_5viah")
+hframes = 6
+vframes = 8
+
+[node name="IntelSprite" type="Sprite2D" parent="Intel"]
 texture_filter = 1
 texture = ExtResource("11_crfhr")
 hframes = 6
@@ -120,6 +163,13 @@ shape = SubResource("RectangleShape2D_l52ph")
 [node name="Teleportation" type="AudioStreamPlayer2D" parent="Intel"]
 stream = ExtResource("13_l52ph")
 volume_db = 10.0
+
+[node name="PlayerMover" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Player/AnimationPlayer")
+libraries = {
+&"": SubResource("AnimationLibrary_5viah")
+}
+autoplay = "playerMove"
 
 [connection signal="timeout" from="GlitchTimer" to="." method="_on_glitch_timer_timeout"]
 [connection signal="body_entered" from="Intel/IntelTalk" to="." method="_on_intel_talk_body_entered"]

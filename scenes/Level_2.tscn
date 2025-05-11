@@ -19,9 +19,11 @@ fog_density = 0.623
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_dr37d"]
 
 [node name="Level0" type="Node2D"]
+texture_filter = 1
 script = ExtResource("1_at62m")
 
 [node name="Player" parent="." instance=ExtResource("2_0qfqs")]
+position = Vector2(-189, 388)
 
 [node name="UI" parent="." instance=ExtResource("3_3v32c")]
 
@@ -45,4 +47,4 @@ tile_set = ExtResource("7_k3h0j")
 
 [node name="LevelChanger" parent="." instance=ExtResource("8_18m6q")]
 position = Vector2(-191, -57)
-nextLevel = "Level_1"
+nextLevel = "Level_3"

@@ -6,7 +6,7 @@ extends CanvasLayer
 @onready var sfxVolumeSlider = $Control/SettingsButtonCard/PanelContainer/MarginContainer/VBoxContainer/SfxVolumeContainer/HSlider
 @onready var masterVolumeSlider = $Control/SettingsButtonCard/PanelContainer/MarginContainer/VBoxContainer/MasterVolumeContainer/HSlider
 @onready var musicVolumeSlider = $Control/SettingsButtonCard/PanelContainer/MarginContainer/VBoxContainer/MusicVolumeContainer/HSlider
-
+var dialogWasThere = false
 
 func _ready() -> void:
 	pauseMenu.visible = false
@@ -15,11 +15,15 @@ func _ready() -> void:
 func _input(event: InputEvent) -> void:
 	
 	if event.is_action_pressed("pause") && !DialogManager.cutsceneActive:
-		
+
 		if get_tree().paused:
 			get_tree().paused = false
+			DialogManager.box.visible = dialogWasThere
 			animationPlayer.play_backwards("pausemenu_enter")
 		else:
+			if DialogManager.box.visible:
+				dialogWasThere = true
+			DialogManager.box.visible = false
 			get_tree().paused = true
 			animationPlayer.play("pausemenu_enter")
 

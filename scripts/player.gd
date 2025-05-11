@@ -230,6 +230,9 @@ func shoot(bulletData):
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name == 'death':
+		DialogManager.letterTimer.stop()
+		DialogManager.closeBox()
+		
 		ui.showDeathScreen()	
 	elif anim_name.contains("level"):
 		cutsceneAnimOver.emit(anim_name)

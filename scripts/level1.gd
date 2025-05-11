@@ -154,6 +154,8 @@ func _input(event: InputEvent) -> void:
 				DialogManager.endCutscene()
 			elif next == -1:
 				if $GlitchTimer.is_stopped():
+					$Intel/IntelSprite.visible=true
+					$Intel/SoldierSprite.visible = false
 					$Intel/IntelAnim.play("intel_teleport_in")
 					$Intel/Teleportation.play()
 					DialogManager.showDialog("","Megaphone",0.4)
@@ -177,7 +179,8 @@ func _ready():
 	DialogManager.cutsceneActive = true
 	SceneService.fadeIn()
 	LevelMusicManager.startMusic('level_0')
-	
+	$Intel/IntelSprite.visible=false
+	$Intel/SoldierSprite.visible=true
 	player.playCutsceneAnim('level_1_anim_0')
 
 func cutsceneAnimOver(animName):

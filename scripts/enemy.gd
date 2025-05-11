@@ -16,18 +16,18 @@ enum ALIEN_TYPE{
 const ALIEN_DATA:Dictionary = {
 	ALIEN_TYPE.NORMAL: {
 		'sprite':arAlienSprite,
-		"fireRate" : 480.0,
+		"fireRate" : 240.0,
 		"damage" : 5
 	},
 	ALIEN_TYPE.SHOTGUN: {
 		'sprite':shotgunAlienSprite,
-		"fireRate" : 60.0,
+		"fireRate" : 45.0,
 		'spread':15,
 		"damage" : 7
 	},
 	ALIEN_TYPE.SNIPER: {
 		'sprite':sniperAlienSprite,
-		"fireRate" : 45.0,
+		"fireRate" : 30.0,
 		"damage" : 30
 	}
 }
@@ -74,6 +74,7 @@ func _physics_process(delta: float) -> void:
 	
 	if health <= 0:
 		$DeathNoise.play()
+		get_parent().killCount += 1
 		animationPlayer.play("death")
 		set_physics_process(false)
 		
@@ -95,7 +96,7 @@ func _physics_process(delta: float) -> void:
 			if raycast.is_colliding():
 				var body = raycast.get_collider()
 				
-				if body.is_in_group("player") && shootTimer.is_stopped():
+				if body!=null && body.is_in_group("player") && shootTimer.is_stopped():
 					shoot()
 					shootTimer.start()
 					
