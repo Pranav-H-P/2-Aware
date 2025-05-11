@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/BossFight.mp3-1115be2273c3a1035bb445da1185dbb
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0
 bpm=0
 beat_count=0

@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/MilitaryMarch.mp3-ddaaafacfbb07df2bddd29dc384
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0
 bpm=0
 beat_count=0

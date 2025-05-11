@@ -21,7 +21,7 @@ and pixelated using [url=https://tezumie.github.io/Image-to-Pixel/]Tezumie's Img
 
 Specific prompts used can be found with the sourcecode
 
-Sound Effects
+Sound Effects from [url=https://elevenlabs.io/app/sound-effects/generate]Eleven Labs[/url]
 
 
 Everything else by Panic Protocol
@@ -31,7 +31,8 @@ Everything else by Panic Protocol
 enum buttonCardNameEnum {
 	MAIN,
 	SETTINGS,
-	CREDITS
+	CREDITS,
+	HELP
 }
 
 @export var lerpAnimSpeed = 5
@@ -60,6 +61,7 @@ enum buttonCardNameEnum {
 @onready var creditsButtonCard = $MenuElements/CreditsButtonCard
 @onready var warningPopup = $MenuElements/WarningPopup
 @onready var newGamePopup = $MenuElements/NewGamePopup
+@onready var helpButtonCard = $MenuElements/HelpButtonCard
 
 var outOfViewPointX; # for dynamically animating buttonCards
 var cardStartPointX;
@@ -84,6 +86,7 @@ func setupDynamicUI():
 	mainButtonCard.visible = true
 	settingsButtonCard.visible = true
 	creditsButtonCard.visible = true
+	helpButtonCard.visible = true
 	bgImg.visible = false
 	
 	
@@ -95,6 +98,8 @@ func setupDynamicUI():
 	settingsButtonCard.position.x = outOfViewPointX
 	settingsButtonCard.modulate.a = 0.0
 	creditsTextBox.text = creditsText
+	helpButtonCard.position.x = outOfViewPointX
+	helpButtonCard.modulate.a = 0.0
 	
 	sfxVolumeSlider.value = DataService.getGlobalSettings()['sfxVolume']
 	masterVolumeSlider.value = DataService.getGlobalSettings()['masterVolume']
@@ -128,6 +133,8 @@ func animateButtonCard(toPos, ind, delta):
 			card = settingsButtonCard
 		buttonCardNameEnum.CREDITS:
 			card = creditsButtonCard
+		buttonCardNameEnum.HELP:
+			card = helpButtonCard
 			
 	card.position.x = lerp(
 		float(card.position.x),
@@ -222,6 +229,11 @@ func _on_credits_pressed() -> void:
 	cardAnimList.push_back([buttonCardNameEnum.CREDITS,'show'])
 	cardAnimList.push_back([buttonCardNameEnum.MAIN,'hide'])
 
+func _on_help_pressed() -> void:
+	$MenuClick.play()
+	cardAnimList.push_back([buttonCardNameEnum.HELP,'show'])
+	cardAnimList.push_back([buttonCardNameEnum.MAIN,'hide'])
+
 
 func _on_exit_pressed() -> void:
 	get_tree().quit()
@@ -231,6 +243,7 @@ func _on_exit_pressed() -> void:
 func _on_back_pressed() -> void:
 	$MenuBack.play()
 	DataService.saveSettings()
+	cardAnimList.push_back([buttonCardNameEnum.HELP,'hide'])
 	cardAnimList.push_back([buttonCardNameEnum.SETTINGS,'hide'])
 	cardAnimList.push_back([buttonCardNameEnum.CREDITS,'hide'])
 	cardAnimList.push_back([buttonCardNameEnum.MAIN,'show'])

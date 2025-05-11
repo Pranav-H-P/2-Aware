@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+signal cutsceneAnimOver(name)
+
 enum WEAPON{
 	AR = 0,
 	SHOTGUN = 1,
@@ -11,7 +13,6 @@ const crosshairSniper = preload("res://assets/sprites/crosshairSniper.png")
 const bullet = preload("res://nodes/bullet.tscn")
 
 @onready var barrel = $barrel
-
 
 const WEAPON_STATS : Dictionary =  { 
 	WEAPON.AR: {
@@ -163,8 +164,8 @@ func _physics_process(delta: float) -> void:
 		'ammoSelect': int(currentWeapon)
 	})
 	
-	
-	
+func playCutsceneAnim(name):
+	animationPlayer.play(name)
 
 func shoot(bulletData):
 	if (currentWeapon == WEAPON.AR):
@@ -230,3 +231,16 @@ func shoot(bulletData):
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name == 'death':
 		ui.showDeathScreen()	
+	elif anim_name.contains("level"):
+		cutsceneAnimOver.emit(anim_name)
+
+
+
+func _on_talk_area_area_entered(area: Area2D) -> void:
+	if area.is_in_group('npc'):
+		area.talk()
+
+
+func _on_talk_area_body_entered(body: Node2D) -> void:
+	if body.is_in_group('npc'):
+		body.talk()

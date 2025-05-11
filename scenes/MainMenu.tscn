@@ -158,7 +158,6 @@ fit_content = true
 autowrap_mode = 0
 
 [node name="MainButtonCard" type="Control" parent="MenuElements"]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -206,6 +205,15 @@ theme_override_font_sizes/font_size = 50
 text = "Settings"
 alignment = 0
 
+[node name="Help" type="Button" parent="MenuElements/MainButtonCard/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_2wh52")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 50
+text = "Tutorial"
+alignment = 0
+
 [node name="Credits" type="Button" parent="MenuElements/MainButtonCard/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("3_2wh52")
@@ -222,6 +230,75 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 2
 theme_override_font_sizes/font_size = 50
 text = "Exit"
+alignment = 0
+
+[node name="HelpButtonCard" type="Control" parent="MenuElements"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="MenuElements/HelpButtonCard"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -452.0
+offset_top = -120.0
+offset_right = 452.0
+offset_bottom = 120.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="MenuElements/HelpButtonCard/PanelContainer"]
+layout_mode = 2
+theme = ExtResource("3_2wh52")
+
+[node name="MarginContainer" type="MarginContainer" parent="MenuElements/HelpButtonCard/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 75
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 75
+theme_override_constants/margin_bottom = 30
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MenuElements/HelpButtonCard/PanelContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 65
+
+[node name="CreditsText" type="RichTextLabel" parent="MenuElements/HelpButtonCard/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_2wh52")
+bbcode_enabled = true
+text = "[color=cyan][b]W,A,S,D[/b][/color] to MOVE the [color=cyan][b]Player[/b][/color]
+
+[color=cyan][b]LEFT CLICK[/b][/color] To [color=cyan][b]SHOOT[/b][/color]
+
+[color=cyan][b]AIM[/b][/color] with the [color=cyan][b]MOUSE[/b][/color]
+
+[color=cyan][b]SCROLL[/b][/color] with the mouse to [color=cyan][b]Cycle Weapons[/b][/color]
+
+Press [color=cyan][b]1[/b][/color] for the [color=cyan][b]ASSAULT RIFLE[/b][/color]
+Press [color=cyan][b]2[/b][/color] for the [color=cyan][b]SHOTGUN[/b][/color]
+Press [color=cyan][b]3[/b][/color] for the [color=cyan][b]SNIPER[/b][/color]
+
+[color=cyan][b]LEFT CLICK[/b][/color] to [color=cyan][b]SKIP DIALOGUE[/b][/color]
+
+[color=cyan][b]FOLLOW THE COMPASS[/b][/color]"
+fit_content = true
+autowrap_mode = 0
+
+[node name="Back" type="Button" parent="MenuElements/HelpButtonCard/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_2wh52")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 50
+text = "Back"
 alignment = 0
 
 [node name="SettingsButtonCard" type="Control" parent="MenuElements"]
@@ -600,8 +677,10 @@ alignment = 0
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="pressed" from="MenuElements/MainButtonCard/MarginContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="MenuElements/MainButtonCard/MarginContainer/VBoxContainer/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="MenuElements/MainButtonCard/MarginContainer/VBoxContainer/Help" to="." method="_on_help_pressed"]
 [connection signal="pressed" from="MenuElements/MainButtonCard/MarginContainer/VBoxContainer/Credits" to="." method="_on_credits_pressed"]
 [connection signal="pressed" from="MenuElements/MainButtonCard/MarginContainer/VBoxContainer/Exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="MenuElements/HelpButtonCard/PanelContainer/MarginContainer/VBoxContainer/Back" to="." method="_on_back_pressed"]
 [connection signal="value_changed" from="MenuElements/SettingsButtonCard/PanelContainer/MarginContainer/VBoxContainer/MasterVolumeContainer/HSlider" to="." method="_on_master_slider_value_changed"]
 [connection signal="value_changed" from="MenuElements/SettingsButtonCard/PanelContainer/MarginContainer/VBoxContainer/MusicVolumeContainer/HSlider" to="." method="_on_music_slider_value_changed"]
 [connection signal="value_changed" from="MenuElements/SettingsButtonCard/PanelContainer/MarginContainer/VBoxContainer/SfxVolumeContainer/HSlider" to="." method="_on_sfx_slider_value_changed"]

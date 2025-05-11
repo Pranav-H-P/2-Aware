@@ -21,6 +21,12 @@ func _ready() -> void:
 	pass
 
 func _process(delta: float) -> void:
+	
+	if DialogManager.cutsceneActive:
+		visible = false
+	else:
+		visible = true
+	
 	healthBar.value = health
 	shotgunAmmoText.text = str(ammo[0])
 	sniperAmmoText.text = str(ammo[1])

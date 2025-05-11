@@ -9,6 +9,7 @@
 size = Vector2(8, 8)
 
 [node name="Bullet" type="Area2D" groups=["bullet"]]
+process_mode = 3
 collision_mask = 5
 script = ExtResource("1_uyh8a")
 

@@ -3,4 +3,5 @@
 [ext_resource type="Script" uid="uid://ucxwur5rmgum" path="res://singletons/scripts/levelMusicManager.gd" id="1_sa2fk"]
 
 [node name="LevelMusicManager" type="AudioStreamPlayer"]
+process_mode = 3
 script = ExtResource("1_sa2fk")

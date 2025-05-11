@@ -1,4 +1,4 @@
-[gd_resource type="AnimationLibrary" load_steps=15 format=3 uid="uid://cydyrf48yqel"]
+[gd_resource type="AnimationLibrary" load_steps=16 format=3 uid="uid://cydyrf48yqel"]
 
 [sub_resource type="Animation" id="Animation_d16bx"]
 length = 0.001
@@ -17,14 +17,14 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("barrel:position")
+tracks/1/path = NodePath(".:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-14, -1)]
+"values": [Vector2(-148, 388)]
 }
 
 [sub_resource type="Animation" id="Animation_b5sd1"]
@@ -118,18 +118,6 @@ tracks/0/keys = {
 "update": 1,
 "values": [4, 5]
 }
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("barrel:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-4, 3)]
-}
 
 [sub_resource type="Animation" id="Animation_586vk"]
 resource_name = "idle_left"
@@ -145,18 +133,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [22, 23]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("barrel:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0.04),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-14, -1)]
 }
 
 [sub_resource type="Animation" id="Animation_2yb4q"]
@@ -174,18 +150,6 @@ tracks/0/keys = {
 "update": 1,
 "values": [10, 11]
 }
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("barrel:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(14, -1)]
-}
 
 [sub_resource type="Animation" id="Animation_nisan"]
 resource_name = "idle_up"
@@ -201,18 +165,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [16, 17]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("barrel:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, -1)]
 }
 
 [sub_resource type="Animation" id="Animation_jymnx"]
@@ -231,18 +183,6 @@ tracks/0/keys = {
 "update": 1,
 "values": [0, 1, 2, 3]
 }
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("barrel:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-4, 3)]
-}
 
 [sub_resource type="Animation" id="Animation_u71v6"]
 resource_name = "walk_left"
@@ -259,18 +199,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [18, 19, 20, 21]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("barrel:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-14, -1)]
 }
 
 [sub_resource type="Animation" id="Animation_1b2qv"]
@@ -289,18 +217,6 @@ tracks/0/keys = {
 "update": 1,
 "values": [6, 7, 8, 9]
 }
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("barrel:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(14, -1)]
-}
 
 [sub_resource type="Animation" id="Animation_x4r3j"]
 resource_name = "walk_up"
@@ -318,17 +234,33 @@ tracks/0/keys = {
 "update": 1,
 "values": [12, 13, 14, 15]
 }
+
+[sub_resource type="Animation" id="Animation_u46m5"]
+resource_name = "level_1_anim_0"
+length = 1.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.3, 0.45, 0.6, 0.75, 0.9, 1.05, 1.2, 1.35, 1.5, 1.65, 1.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [12, 13, 14, 15, 12, 13, 14, 15, 12, 13, 14, 15, 12]
+}
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("barrel:position")
+tracks/1/path = NodePath(".:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 1.8),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(0, -1)]
+"values": [Vector2(-148, 388), Vector2(-148, 173)]
 }
 
 [resource]
@@ -343,6 +275,7 @@ _data = {
 &"idle_left": SubResource("Animation_586vk"),
 &"idle_right": SubResource("Animation_2yb4q"),
 &"idle_up": SubResource("Animation_nisan"),
+&"level_1_anim_0": SubResource("Animation_u46m5"),
 &"walk_down": SubResource("Animation_jymnx"),
 &"walk_left": SubResource("Animation_u71v6"),
 &"walk_right": SubResource("Animation_1b2qv"),

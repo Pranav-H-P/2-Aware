@@ -13,7 +13,8 @@ const characterImages = {
 	"IntelSideEye": preload("res://assets/images/IntelSideEyeDialog.png"),
 	"IntelNormal": preload("res://assets/images/IntelSideDialog.png"),
 	"IntelAngry": preload("res://assets/images/IntelAngry.png"),
-	"Mark": preload("res://assets/images/MarkDialog.png")
+	"Mark": preload("res://assets/images/MarkDialog.png"),
+	"Megaphone": preload("res://assets/images/MegaphonePixelated.png")
 }
 
 const fonts = {
@@ -57,7 +58,7 @@ func startCutscene():
 	get_tree().paused = true
 	openBox()
 	
-func endCustscene():
+func endCutscene():
 	cutsceneActive = false
 	get_tree().paused = false
 	closeBox()
@@ -78,36 +79,45 @@ func showOptions(optionData):
 	$Control/VBoxContainer/Panel/MarginContainer/OptionBox/Option2.text = optionData[1]['text']
 	currentOptionData = optionData
 	
-func showDialog(dialog:String, character = "SoldierGreen", basePitch = 1.0, font = "default"):
+func showDialog(dialog:String, spriteName = "SoldierGreen", basePitch = 1.0):
 	
 	optionBox.visible = false
 	toDisplay = dialog
 	
 	textBox.text = ""
 	
-	characterSprite.texture = characterImages[character]
+	if spriteName.contains("Intel"):
+		textBox.add_theme_font_override('bold_font',fonts['aware'])
+		textBox.add_theme_font_override('normal_font',fonts['aware'])
+		textBox.add_theme_font_override('italics_font',fonts['aware'])
+	else:
+		textBox.add_theme_font_override('bold_font',fonts['default'])
+		textBox.add_theme_font_override('normal_font',fonts['default'])
+		textBox.add_theme_font_override('italics_font',fonts['default'])
+		
+	characterSprite.texture = characterImages[spriteName]
 	sounds.pitch_scale = basePitch
 	
 	letterTimer.wait_time = charTime
 	if toDisplay.length() > textBox.text.length() :
 		letterTimer.start()
 	
-func getBBCodeEnclosedChar(char):
-	var final = char
-	if char == '[':
+func getBBCodeEnclosedChar(ch):
+	var final = ch
+	if ch == '[':
 		final = "["
 		var i = 1
 		while (final[-1] != ']'):
-			char = toDisplay[textBox.text.length() + i]
-			final += char
+			ch = toDisplay[textBox.text.length() + i]
+			final += ch
 			i += 1
 			
 		final += toDisplay[textBox.text.length() + i]
 	return final
 	
 func _on_letter_timer_timeout() -> void:
-	var char = toDisplay[textBox.text.length()]
-	var final = getBBCodeEnclosedChar(char)
+	var ch = toDisplay[textBox.text.length()]
+	var final = getBBCodeEnclosedChar(ch)
 	
 	var basePitch = sounds.pitch_scale
 	match final[-1]:
