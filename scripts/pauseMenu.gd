@@ -19,10 +19,13 @@ func _input(event: InputEvent) -> void:
 		if get_tree().paused:
 			get_tree().paused = false
 			DialogManager.box.visible = dialogWasThere
+			if dialogWasThere:
+				DialogManager.letterTimer.start()
 			animationPlayer.play_backwards("pausemenu_enter")
 		else:
 			if DialogManager.box.visible:
 				dialogWasThere = true
+			DialogManager.letterTimer.stop()
 			DialogManager.box.visible = false
 			get_tree().paused = true
 			animationPlayer.play("pausemenu_enter")
@@ -53,8 +56,12 @@ func _on_confirm_action_pressed() -> void:
 	animationPlayer.play_backwards('warning_enter')
 
 func _on_continue_pressed() -> void:
+	
 	$MenuClickAlt.play()
 	get_tree().paused = false
+	DialogManager.box.visible = dialogWasThere
+	if dialogWasThere:
+		DialogManager.letterTimer.start()
 	animationPlayer.play_backwards("pausemenu_enter")
 
 

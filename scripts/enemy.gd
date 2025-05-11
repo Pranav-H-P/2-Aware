@@ -159,7 +159,7 @@ func shoot():
 			blt.creator = 'enemy'
 			blt.damage = ALIEN_DATA[alienType]['damage']
 			blt.global_position = barrel.global_position
-			blt.speed = bulletSpeed*2
+			blt.speed = bulletSpeed
 			blt.direction = dir
 			blt.z_index = 2 if bulletAbove else 0
 			shootsounds[alienType].play()
@@ -207,7 +207,12 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 		pick.global_position = global_position
 		get_parent().add_child(pick)
 		
-		pick.setTypeData(alienType, RngService.random.randi_range(1,3))
+		if alienType == ALIEN_TYPE.NORMAL:
+			if RngService.random.randi_range(0,5) == 5:
+				pick.setTypeData(alienType, RngService.random.randi_range(20,30))
+		else:
+			
+			pick.setTypeData(alienType, RngService.random.randi_range(1,3))
 		
 		
 		

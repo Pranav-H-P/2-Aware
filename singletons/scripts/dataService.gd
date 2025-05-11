@@ -92,7 +92,7 @@ func getAmmoData():
 func saveUserData(level = 0, health = 100, shotgun = 0, sniper = 0):
 	userSaveData['ammo'] = [shotgun, sniper]
 	userSaveData['level'] = level
-	userSaveData['health'] = health
+	userSaveData['health'] = clamp(health, 80,100)
 	writeJson(userSavePath, userSaveData)
 
 func getGlobalSettings():

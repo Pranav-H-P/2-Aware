@@ -150,7 +150,7 @@ func _on_mouse_entered() -> void:
 	
 	if !cutsceneActive:
 		
-		box.modulate = Color(1,1,1,0.8)
+		box.modulate = Color(1,1,1,0.5)
 
 
 func _on_mouse_exited() -> void:

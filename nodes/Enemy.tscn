@@ -302,7 +302,7 @@ wall_min_slide_angle = 0.0
 script = ExtResource("1_tq0nw")
 shootRange = 200
 detectionRadius = 500
-health = 70
+health = 40
 
 [node name="16Bitassaultrifleshot" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_v351y")

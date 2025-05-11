@@ -41,11 +41,13 @@ func _on_body_entered(body: Node2D) -> void:
 					body.health = clamp(incValue + body.health, 0, 100)
 					soundEffects[type].play()
 					visible=false
+					incValue = 0
 					$CollisionShape2D.disabled = true
 			_:
 				body.ammoCount[type]+= incValue
 				soundEffects[type].play()
 				visible=false
+				incValue = 0
 				$CollisionShape2D.disabled = true
 		
 
