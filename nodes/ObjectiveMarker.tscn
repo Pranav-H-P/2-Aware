@@ -27,18 +27,21 @@ offset_top = -449.0
 offset_right = 301.0
 offset_bottom = 150.5
 grow_vertical = 2
+mouse_filter = 2
 theme_override_constants/margin_left = 45
 theme_override_constants/margin_top = 45
 theme_override_constants/margin_right = 45
 
 [node name="Control" type="Control" parent="CanvasLayer/Control/MarginContainer2"]
 layout_mode = 2
+mouse_filter = 2
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/MarginContainer2/Control"]
 texture_filter = 1
 layout_mode = 2
 offset_right = 256.0
 offset_bottom = 256.0
+mouse_filter = 2
 texture = ExtResource("1_vu251")
 
 [node name="CompassNeedle" type="TextureRect" parent="CanvasLayer/Control/MarginContainer2/Control"]
@@ -47,4 +50,5 @@ layout_mode = 2
 offset_right = 256.0
 offset_bottom = 256.0
 pivot_offset = Vector2(128, 129)
+mouse_filter = 2
 texture = ExtResource("2_xn0pm")

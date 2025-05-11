@@ -1,0 +1,116 @@
+[gd_scene load_steps=16 format=4 uid="uid://dib5e5soxye6h"]
+
+[ext_resource type="Script" uid="uid://dawcgrqfhpeur" path="res://scripts/level_18.gd" id="1_f658h"]
+[ext_resource type="PackedScene" uid="uid://cktljovo4w0pb" path="res://nodes/Player.tscn" id="2_chwql"]
+[ext_resource type="PackedScene" uid="uid://cj7a52kxwkod8" path="res://nodes/UI.tscn" id="3_g34p5"]
+[ext_resource type="PackedScene" uid="uid://dlpc630p2pmrc" path="res://nodes/PauseMenu.tscn" id="4_brwpv"]
+[ext_resource type="PackedScene" uid="uid://eivjwquf4n6w" path="res://nodes/ObjectiveMarker.tscn" id="5_nb2hb"]
+[ext_resource type="TileSet" uid="uid://pjx1pt8i347j" path="res://TileMaps/coverTileSet.tres" id="6_txeh2"]
+[ext_resource type="TileSet" uid="uid://b57p0ou7aoc0a" path="res://TileMaps/TerrainTileSet.tres" id="7_3gmxe"]
+[ext_resource type="PackedScene" uid="uid://cxcjuvna66sw7" path="res://nodes/LevelChanger.tscn" id="8_cwc16"]
+[ext_resource type="PackedScene" uid="uid://bqhp3c0y0kx3r" path="res://nodes/GlitchEffect.tscn" id="10_n2sdw"]
+
+[sub_resource type="Environment" id="Environment_bmqp6"]
+background_mode = 3
+glow_enabled = true
+glow_hdr_threshold = 0.2
+fog_light_color = Color(0, 0, 0, 1)
+fog_density = 0.623
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_f63rn"]
+
+[sub_resource type="Animation" id="Animation_vq675"]
+resource_name = "playerMover"
+length = 0.9
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../../Player:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-148, 388), Vector2(-144, 259)]
+}
+
+[sub_resource type="Animation" id="Animation_kjoln"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../../Player:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-148, 388)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kjoln"]
+_data = {
+&"RESET": SubResource("Animation_kjoln"),
+&"playerMover": SubResource("Animation_vq675")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vq675"]
+size = Vector2(93, 5)
+
+[node name="Level1" type="Node2D"]
+process_mode = 3
+texture_filter = 1
+script = ExtResource("1_f658h")
+
+[node name="Player" parent="." instance=ExtResource("2_chwql")]
+position = Vector2(-148, 388)
+
+[node name="UI" parent="." instance=ExtResource("3_g34p5")]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_bmqp6")
+
+[node name="PauseMenu" parent="." instance=ExtResource("4_brwpv")]
+
+[node name="ObjectiveMarker" parent="." instance=ExtResource("5_nb2hb")]
+position = Vector2(-149, 1)
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_f63rn")
+
+[node name="CoverTiles" type="TileMapLayer" parent="."]
+tile_set = ExtResource("6_txeh2")
+
+[node name="TerrainTiles" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAD3/w0AAAAdAAAAAAD4/w0AAAAdAAAAAAD5/w0AAAAdAAAAAAD6/w0AAAAdAAAAAAD7/w0AAAAdAAAAAAD8/w0AAAAdAAAAAAD4/wwAAAAiAAAAAAD3/wwAAAAdAAAAAAD+/w0AAAAdAAAAAAD9/w0AAAAdAAAAAAD+/wwAAAAiAAAAAAD9/wwAAAAiAAAAAAD5/wwAAAAiAAAAAAD6/wwAAAAiAAAAAAD7/wwAAAAiAAAAAAD8/wwAAAAiAAAAAAD//wwAAAAdAAAAAAD//w0AAAAdAAAAAAD3/wIAAAAjAAAAAAD3/wMAAAAjAAAAAAD3/wQAAAAjAAAAAAD3/wUAAAAjAAAAAAD3/wYAAAAjAAAAAAD3/wcAAAAjAAAAAAD3/wgAAAAjAAAAAAD3/wkAAAAjAAAAAAD3/woAAAAjAAAAAAD3/wsAAAAjAAAAAAD4/wIAAAAjAAAAAAD5/wIAAAAjAAAAAAD5//3/AAAjAAAAAAD5//7/AAAjAAAAAAD5////AAAjAAAAAAD5/wAAAAAjAAAAAAD5/wEAAAAjAAAAAAD6//3/AAAjAAAAAAD7//3/AAAjAAAAAAD8//3/AAAjAAAAAAD9//3/AAAjAAAAAAD+//3/AAAjAAAAAAD+//7/AAAjAAAAAAD+////AAAjAAAAAAD+/wAAAAAjAAAAAAD+/wEAAAAjAAAAAAD+/wIAAAAjAAAAAAD//wIAAAAjAAAAAAD//wMAAAAjAAAAAAD//wQAAAAjAAAAAAD//wUAAAAjAAAAAAD//wYAAAAjAAAAAAD//wcAAAAjAAAAAAD//wgAAAAjAAAAAAD//wkAAAAjAAAAAAD//woAAAAjAAAAAAD//wsAAAAjAAAAAAD7/wEAAAAiAAEAAAD7/wIAAAAiAAEAAAD7/wMAAAAiAAEAAAD7/wQAAAAiAAEAAAD7/wUAAAAiAAEAAAD7/wYAAAAiAAEAAAD7/wcAAAAgAAQAAAD7/wgAAAAiAAEAAAD7/wkAAAAiAAEAAAD7/woAAAAiAAEAAAD7/wsAAAAiAAEAAAD8/wEAAAAiAAEAAAD8/wIAAAAiAAEAAAD8/wMAAAAiAAEAAAD8/wQAAAAiAAEAAAD8/wUAAAAiAAEAAAD8/wYAAAAiAAEAAAD8/wcAAAAgAAQAAAD8/wgAAAAiAAEAAAD8/wkAAAAiAAEAAAD8/woAAAAiAAEAAAD8/wsAAAAiAAEAAAD6/wYAAAAiAAEAAAD6/wcAAAAgAAQAAAD6/wgAAAAiAAEAAAD6/wkAAAAiAAEAAAD6/woAAAAiAAEAAAD6/wsAAAAiAAEAAAD9/wMAAAAiAAAAAAD9/wQAAAAiAAAAAAD9/wUAAAAiAAAAAAD9/wYAAAAiAAAAAAD9/wcAAAAiAAAAAAD9/wgAAAAiAAAAAAD9/wkAAAAiAAAAAAD9/woAAAAiAAAAAAD9/wsAAAAiAAAAAAD+/wMAAAAiAAAAAAD+/wQAAAAiAAAAAAD+/wUAAAAiAAAAAAD+/wYAAAAiAAAAAAD+/wcAAAAiAAAAAAD+/wgAAAAiAAAAAAD+/wkAAAAiAAAAAAD+/woAAAAiAAAAAAD+/wsAAAAiAAAAAAD9/wEAAAAiAAAAAAD9/wIAAAAiAAAAAAD6/wEAAAAiAAAAAAD6/wIAAAAiAAAAAAD6/wMAAAAiAAAAAAD6/wQAAAAiAAAAAAD6/wUAAAAiAAAAAAD4/wMAAAAiAAAAAAD4/wQAAAAiAAAAAAD4/wUAAAAiAAAAAAD4/wYAAAAiAAAAAAD4/wcAAAAiAAAAAAD4/wgAAAAiAAAAAAD4/wkAAAAiAAAAAAD4/woAAAAiAAAAAAD4/wsAAAAiAAAAAAD5/wMAAAAiAAAAAAD5/wQAAAAiAAAAAAD5/wUAAAAiAAAAAAD5/wYAAAAiAAAAAAD5/wcAAAAiAAAAAAD5/wgAAAAiAAAAAAD5/wkAAAAiAAAAAAD5/woAAAAiAAAAAAD5/wsAAAAiAAAAAAD7/wAAAAAiAAEAAAD7////AAAiAAEAAAD8////AAAiAAEAAAD8/wAAAAAiAAEAAAD6////AAAiAAAAAAD6/wAAAAAiAAAAAAD9////AAAiAAAAAAD9/wAAAAAiAAAAAAD6//7/AAAjAAEAAAD7//7/AAAjAAEAAAD8//7/AAAjAAEAAAD9//7/AAAjAAEAAAA=")
+tile_set = ExtResource("7_3gmxe")
+
+[node name="LevelChanger" parent="." instance=ExtResource("8_cwc16")]
+position = Vector2(-128, -18)
+nextLevel = "Level_19"
+
+[node name="GlitchTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[node name="GlitchEffect" parent="." instance=ExtResource("10_n2sdw")]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Area2D/CollisionShape2D")
+libraries = {
+&"": SubResource("AnimationLibrary_kjoln")
+}
+autoplay = "playerMover"
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(-144, 240)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-0.5, -11.5)
+shape = SubResource("RectangleShape2D_vq675")
+
+[connection signal="timeout" from="GlitchTimer" to="." method="_on_glitch_timer_timeout"]
+
+[editable path="Player"]

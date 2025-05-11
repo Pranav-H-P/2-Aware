@@ -75,6 +75,9 @@ script = ExtResource("1_bmqp6")
 [node name="Player" parent="." instance=ExtResource("2_5f7sk")]
 position = Vector2(-148, 388)
 
+[node name="Sprite2D" parent="Player" index="5"]
+frame = 12
+
 [node name="UI" parent="." instance=ExtResource("3_1tdkx")]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -155,6 +158,8 @@ position = Vector2(-0.5, -2.5)
 shape = SubResource("RectangleShape2D_a4osw")
 
 [node name="IntelTalk" type="Area2D" parent="Intel"]
+collision_layer = 256
+collision_mask = 257
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Intel/IntelTalk"]
 position = Vector2(-58.5, -1.5)
