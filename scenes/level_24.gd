@@ -133,7 +133,8 @@ func choiceOver(choice):
 		mark.violent = true
 		$Fog/FogAnim.play('fade_in')
 		mark.animationPlayer.play('kneel_teleport')
-		$MarkTalk.queue_free()
+		if $MarkTalk != null:
+			$MarkTalk.queue_free()
 		return
 	currentPos = next
 	

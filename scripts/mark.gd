@@ -8,7 +8,7 @@ signal killed()
 @onready var navTimer = $NavTimer
 @export var speed = 1
 @export var damage = 5
-var health = 1000
+var health = 2000
 var violent = false
 var punching = false
 
@@ -89,7 +89,9 @@ func _on_nav_timer_timeout() -> void:
 
 func _on_upgrade_timer_timeout() -> void:
 	damage += 5
-	speed  += 3
+	speed  += 4
+	speed = clamp(speed, 0 ,10)
+	LevelMusicManager.changePitch(LevelMusicManager.pitch_scale-0.1)
 
 
 func _on_punch_zone_body_entered(body: Node2D) -> void:
