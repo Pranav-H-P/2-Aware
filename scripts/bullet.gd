@@ -3,6 +3,7 @@ extends Area2D
 
 
 var damage = 10
+const pierceSpeed = 8 # speed beyond this will penetrate walls and bodies
 var speed = 4
 var direction = Vector2.ZERO
 
@@ -44,7 +45,8 @@ func _on_body_entered(body: Node2D) -> void:
 		if creator != "player":
 			$"16BitBulletHittingPerson".play()
 			body.health-=damage
-			damage=0
+			if speed<pierceSpeed:
+				damage=0
 			hitAnim()
 		else:
 			return
@@ -53,11 +55,13 @@ func _on_body_entered(body: Node2D) -> void:
 			
 			$"16BitBulletHittingPerson".play()
 			body.health-=damage
-			damage=0
+			if speed<pierceSpeed:
+				damage=0
 			hitAnim()
 		else:
 			return
 	else:
+		
 		damage=0
 		$"16BitBulletHittingWall".play()
 		hitAnim()

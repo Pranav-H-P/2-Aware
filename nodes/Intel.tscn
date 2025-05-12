@@ -300,6 +300,7 @@ process_mode = 1
 motion_mode = 1
 wall_min_slide_angle = 0.0
 script = ExtResource("1_mj313")
+maxApproachDist = 0
 
 [node name="16Bitassaultrifleshot" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_fqh7j")
@@ -341,7 +342,7 @@ avoidance_enabled = true
 target_position = Vector2(0, 75)
 
 [node name="NavTimer" type="Timer" parent="."]
-wait_time = 0.5
+wait_time = 0.25
 autostart = true
 
 [node name="DeathNoise" type="AudioStreamPlayer2D" parent="."]

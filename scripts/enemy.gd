@@ -208,12 +208,16 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 		get_parent().add_child(pick)
 		
 		if alienType == ALIEN_TYPE.NORMAL:
-			if RngService.random.randi_range(0,5) == 5:
+			if RngService.random.randi_range(1,2) == 1:
 				pick.setTypeData(alienType, RngService.random.randi_range(20,30))
-		else:
+		
+		elif alienType == ALIEN_TYPE.SHOTGUN:
 			
 			pick.setTypeData(alienType, RngService.random.randi_range(1,3))
-		
+			
+		else:
+			
+			pick.setTypeData(alienType, 1)
 		
 		
 		
