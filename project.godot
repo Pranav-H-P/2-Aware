@@ -10,13 +10,15 @@ config_version=5
 
 [application]
 
-config/name="2aware"
+config/name="2Aware"
 run/main_scene="uid://c15scsedsi82f"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 boot_splash/bg_color=Color(0, 0, 0, 1)
 boot_splash/show_image=false
 boot_splash/fullsize=false
 boot_splash/use_filter=false
+config/icon="uid://dmy5t4hq3stg"
+config/windows_native_icon="res://assets/images/icon.ico"
 
 [autoload]
 
@@ -118,4 +120,4 @@ pause={
 
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
-environment/defaults/default_clear_color=Color(0.425781, 0.425781, 0.425781, 1)
+environment/defaults/default_clear_color=Color(0, 0, 0, 1)

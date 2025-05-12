@@ -19,6 +19,21 @@ fog_density = 0.623
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_f63rn"]
 
+[sub_resource type="Animation" id="Animation_kjoln"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../../Player:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-148, 388)]
+}
+
 [sub_resource type="Animation" id="Animation_vq675"]
 resource_name = "playerMover"
 length = 0.9
@@ -33,21 +48,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(-148, 388), Vector2(-144, 259)]
-}
-
-[sub_resource type="Animation" id="Animation_kjoln"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("../../Player:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-148, 388)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_kjoln"]

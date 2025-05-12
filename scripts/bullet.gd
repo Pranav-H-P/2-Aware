@@ -23,6 +23,7 @@ func _on_timer_timeout() -> void:
 	queue_free()
 
 func hitAnim():
+	$CollisionShape2D.disabled = true
 	sprite.visible=false
 	particles.emitting = true
 	despawnTimer.wait_time = particles.lifetime

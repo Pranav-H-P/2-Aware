@@ -4,10 +4,14 @@
 
 A 2D - retro style twin stick shooter. Fast paced action with a little touch of story.
 
-Fight for humanity's place among the stars. A short and action packed run and gun adventure.
+Fight for humanity's place among the stars. A short and action packed run and gun adventure. 
 
-Created as a submission for Prompt.it
+Or at least that's what the Devs say.
 
+
+Pro Tip: Keep moving
+
+Created as a submission for Prompt.it 
 
 
 ## Theme
@@ -16,12 +20,14 @@ Glitch in the system (Not gonna go into detail, there's a story)
 ## Installation Instructions
 
 
-1. Download 2Aware.exe and 2Aware.pck
-2. Make sure you save both in the same folder
-3. Run 2Aware.exe
 
+1. go to https://panic-protocol.itch.io/2-aware
+2. Download 2Aware.exe and 2Aware.pck
+3. Make sure you save both in the same folder
+4. Run 2Aware.exe
 
-(itch.io link coming soon...)
+Alternatively, you can play it on the web, you'll have to go fullscreen though
+
 
 You may receive a "unrecognized application" alert from windows defender, but that's because Godot does not sign the exported executable by default. (and I don't have a Microsoft authorized key yet)
 
