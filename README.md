@@ -15,7 +15,15 @@ Glitch in the system (Not gonna go into detail, there's a story)
 
 ## Installation Instructions
 
-just run the .exe file
+
+1. Download 2Aware.exe and 2Aware.pck
+2. Make sure you save both in the same folder
+3. Run 2Aware.exe
+
+
+(itch.io link coming soon...)
+
+You may receive a "unrecognized application" alert from windows defender, but that's because Godot does not sign the exported executable by default. (and I don't have a Microsoft authorized key yet)
 
 
 ## Controls
