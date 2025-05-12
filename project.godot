@@ -25,6 +25,7 @@ SceneService="*res://singletons/nodes/SceneService.tscn"
 RngService="*res://singletons/scripts/RNGService.gd"
 DialogManager="*res://singletons/nodes/DialogManager.tscn"
 LevelMusicManager="*res://singletons/nodes/LevelMusicManager.tscn"
+MarkovService="*res://singletons/scripts/MarkovService.gd"
 
 [display]
 

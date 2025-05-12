@@ -47,7 +47,7 @@ func _on_body_entered(body: Node2D) -> void:
 			return
 	elif body.is_in_group("enemy"):
 		if creator != "enemy":
-			print('playing once')
+			
 			$"16BitBulletHittingPerson".play()
 			body.health-=damage
 			hitAnim()

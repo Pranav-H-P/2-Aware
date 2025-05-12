@@ -5,6 +5,25 @@ Tool used = Chatgpt
 
 output gave a few lines, I cherrypicked and added a few more
 
+> Generate gdscript code to implement a markov chain
+
+got working code
+
+To generate training text for markov chain
+===============
+copy pasted the "navy seals copypasta" but Warhammer 40K edition, added prompt 
+> modify this copypasta by replacing the swearing with milder words.
+> slightly modify the lines so that there would be no copyright infringement, kind of like how meet the spartans parodies 300 without infringing on copyright
+
+got satisfactory output
+
+> Similarly for the "from the moment I understood the weakness of my flesh, it disgusted me" copypasta
+
+got satisfactory output
+
+Also appended few lines of my own and other npc lines
+
+
 Tool used = copilot
 ====================
 for code completion, also used copilot to auto complete certain lines in the
