@@ -196,6 +196,7 @@ func choiceOver(choice):
 	
 	if next == null:
 		DialogManager.endCutscene()
+		return
 	currentPos = next
 	
 	var item = dialog[currentPos]

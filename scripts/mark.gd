@@ -6,10 +6,10 @@ signal killed()
 @onready var navAgent = $NavigationAgent2D
 @onready var player = $"../Player"
 @onready var navTimer = $NavTimer
-@export var speed = 10
+@export var speed = 1
 @export var damage = 5
-var health = 100
-var violent = true
+var health = 1000
+var violent = false
 var punching = false
 
 
@@ -89,7 +89,7 @@ func _on_nav_timer_timeout() -> void:
 
 func _on_upgrade_timer_timeout() -> void:
 	damage += 5
-	speed  += 1
+	speed  += 3
 
 
 func _on_punch_zone_body_entered(body: Node2D) -> void:
@@ -103,7 +103,12 @@ func _on_punch_zone_body_entered(body: Node2D) -> void:
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	punching = false
-
+	if anim_name == 'teleport_out':
+		DialogManager.endCutscene()
+		DialogManager.cutsceneActive = false
+		violent = true
+		LevelMusicManager.changePitch(0.4)
+		$UpgradeTimer.start()
 
 func _on_punch_zone_body_exited(body: Node2D) -> void:
 	if body.is_in_group('player'):

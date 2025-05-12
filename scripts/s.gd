@@ -101,8 +101,9 @@ func cutsceneAnimOver(animName):
 
 func choiceOver(choice):
 	var next = choice['goTo']
-	
+	LevelMusicManager.changePitch(0.7)
 	if next == null:
+		LevelMusicManager.changePitch(0.4)
 		DialogManager.endCutscene()
 		return
 	currentPos = next
