@@ -63,64 +63,48 @@ killCount = 16
 
 [node name="Enemy" parent="." instance=ExtResource("9_in48v")]
 position = Vector2(-576, -591)
-alienType = 2
 
 [node name="Enemy2" parent="." instance=ExtResource("9_in48v")]
 position = Vector2(-615, -560)
-alienType = 2
 
 [node name="Enemy3" parent="." instance=ExtResource("9_in48v")]
 position = Vector2(-200, -482)
-alienType = 2
 
 [node name="Enemy4" parent="." instance=ExtResource("9_in48v")]
 position = Vector2(-124, -480)
-alienType = 2
 
 [node name="Enemy5" parent="." instance=ExtResource("9_in48v")]
 position = Vector2(145, -521)
-alienType = 2
 
 [node name="Enemy6" parent="." instance=ExtResource("9_in48v")]
 position = Vector2(151, -457)
-alienType = 2
 
 [node name="Enemy7" parent="." instance=ExtResource("9_in48v")]
 position = Vector2(369, -252)
-alienType = 2
 
 [node name="Enemy8" parent="." instance=ExtResource("9_in48v")]
 position = Vector2(347, -178)
-alienType = 2
 
 [node name="Enemy9" parent="." instance=ExtResource("9_in48v")]
 position = Vector2(326, 116)
-alienType = 2
 
 [node name="Enemy10" parent="." instance=ExtResource("9_in48v")]
 position = Vector2(192, 3)
-alienType = 2
 
 [node name="Enemy11" parent="." instance=ExtResource("9_in48v")]
 position = Vector2(-650, -215)
-alienType = 2
 
 [node name="Enemy12" parent="." instance=ExtResource("9_in48v")]
 position = Vector2(-660, -155)
-alienType = 2
 
 [node name="Enemy13" parent="." instance=ExtResource("9_in48v")]
 position = Vector2(-457, 110)
-alienType = 2
 
 [node name="Enemy14" parent="." instance=ExtResource("9_in48v")]
 position = Vector2(-389, 100)
-alienType = 2
 
 [node name="Enemy15" parent="." instance=ExtResource("9_in48v")]
 position = Vector2(-225, -200)
-alienType = 2
 
 [node name="Enemy16" parent="." instance=ExtResource("9_in48v")]
 position = Vector2(-29, -207)
-alienType = 2

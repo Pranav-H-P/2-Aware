@@ -57,7 +57,6 @@ _data = {
 
 [node name="Level1" type="Node2D"]
 process_mode = 3
-visible = false
 texture_filter = 1
 script = ExtResource("1_hk63t")
 

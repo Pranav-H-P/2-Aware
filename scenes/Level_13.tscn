@@ -76,37 +76,30 @@ position = Vector2(-593, -202)
 
 [node name="Enemy2" parent="." instance=ExtResource("9_58lte")]
 position = Vector2(-747, -59)
-alienType = 2
 
 [node name="Enemy3" parent="." instance=ExtResource("9_58lte")]
 position = Vector2(-479, -219)
-alienType = 1
 
 [node name="Enemy4" parent="." instance=ExtResource("9_58lte")]
 position = Vector2(-561, -94)
-alienType = 2
 
 [node name="Enemy5" parent="." instance=ExtResource("9_58lte")]
 position = Vector2(-667, -202)
 
 [node name="Enemy6" parent="." instance=ExtResource("9_58lte")]
 position = Vector2(-1186, -536)
-alienType = 1
 
 [node name="Enemy7" parent="." instance=ExtResource("9_58lte")]
 position = Vector2(-1363, -530)
-alienType = 1
 
 [node name="Enemy8" parent="." instance=ExtResource("9_58lte")]
 position = Vector2(-1337, -487)
-alienType = 1
 
 [node name="Enemy9" parent="." instance=ExtResource("9_58lte")]
 position = Vector2(-1072, -476)
 
 [node name="Enemy10" parent="." instance=ExtResource("9_58lte")]
 position = Vector2(-830, -621)
-alienType = 2
 
 [node name="Enemy11" parent="." instance=ExtResource("9_58lte")]
 position = Vector2(-601, -658)
@@ -119,53 +112,42 @@ position = Vector2(-593, -459)
 
 [node name="Enemy14" parent="." instance=ExtResource("9_58lte")]
 position = Vector2(-476, -658)
-alienType = 1
 
 [node name="Enemy15" parent="." instance=ExtResource("9_58lte")]
 position = Vector2(-339, -667)
-alienType = 1
 
 [node name="Enemy16" parent="." instance=ExtResource("9_58lte")]
 position = Vector2(-382, -510)
-alienType = 1
 
 [node name="Enemy17" parent="." instance=ExtResource("9_58lte")]
 position = Vector2(-250, -356)
 
 [node name="Enemy18" parent="." instance=ExtResource("9_58lte")]
 position = Vector2(-51, -693)
-alienType = 2
 
 [node name="Enemy19" parent="." instance=ExtResource("9_58lte")]
 position = Vector2(-285, -770)
-alienType = 1
 
 [node name="Enemy20" parent="." instance=ExtResource("9_58lte")]
 position = Vector2(-162, -701)
-alienType = 1
 
 [node name="Enemy21" parent="." instance=ExtResource("9_58lte")]
 position = Vector2(91, -755)
-alienType = 1
 
 [node name="Enemy22" parent="." instance=ExtResource("9_58lte")]
 position = Vector2(-570, -328)
-alienType = 1
 
 [node name="Enemy23" parent="." instance=ExtResource("9_58lte")]
 position = Vector2(-344, -252)
 
 [node name="Enemy24" parent="." instance=ExtResource("9_58lte")]
 position = Vector2(-450, -53)
-alienType = 2
 
 [node name="Enemy25" parent="." instance=ExtResource("9_58lte")]
 position = Vector2(-652, 52)
-alienType = 1
 
 [node name="Enemy26" parent="." instance=ExtResource("9_58lte")]
 position = Vector2(-313, -4)
-alienType = 1
 
 [connection signal="timeout" from="DialogTimer" to="." method="_on_dialog_timer_timeout"]
 [connection signal="body_entered" from="Supports" to="." method="_on_supports_body_entered"]

@@ -63,5 +63,5 @@ func update_chain(text: String) -> void:
 		else:
 			transitions[current_word] = [next_word]		
 func getTotatllyRandom():
-	var st = transitions.keys()[RngService.random.randi_range(0,transitions.size())]
+	var st = transitions.keys()[RngService.random.randi_range(0,transitions.size()-1)]
 	return generate_sentence(st,25)
