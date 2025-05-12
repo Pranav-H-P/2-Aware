@@ -85,6 +85,7 @@ I do not own the AI generated assets, and they cannot be re-used by you either, 
 - Different Levels
 - Boss Fights
 - 27 mini levels, most of them have aliens to shoot
+- Save data system, can be reset in settings
 
 
 ## Known Limitations

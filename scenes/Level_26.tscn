@@ -530,9 +530,7 @@ position = Vector2(-162, -462)
 
 [node name="Intel" parent="." instance=ExtResource("12_l0o8e")]
 position = Vector2(337, 129)
-shootRange = 500
-maxApproachDist = 2000
-detectionRadius = 700
+detectionRadius = 2000
 health = 2000
 
 [node name="DevPatchTimer" type="Timer" parent="."]
