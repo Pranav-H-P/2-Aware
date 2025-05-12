@@ -23,7 +23,7 @@ func _on_timer_timeout() -> void:
 	queue_free()
 
 func hitAnim():
-	$CollisionShape2D.disabled = true
+	
 	sprite.visible=false
 	particles.emitting = true
 	despawnTimer.wait_time = particles.lifetime
@@ -34,6 +34,7 @@ func _on_area_entered(area: Area2D) -> void:
 	if area.is_in_group("pickup") || area.is_in_group("bullet"):
 		return
 	$"16BitBulletHittingWall".play()
+	
 	hitAnim()
 
 
@@ -43,6 +44,7 @@ func _on_body_entered(body: Node2D) -> void:
 		if creator != "player":
 			$"16BitBulletHittingPerson".play()
 			body.health-=damage
+			damage=0
 			hitAnim()
 		else:
 			return
@@ -51,11 +53,12 @@ func _on_body_entered(body: Node2D) -> void:
 			
 			$"16BitBulletHittingPerson".play()
 			body.health-=damage
+			damage=0
 			hitAnim()
 		else:
 			return
 	else:
-		
+		damage=0
 		$"16BitBulletHittingWall".play()
 		hitAnim()
 	
