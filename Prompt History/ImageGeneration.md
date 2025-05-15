@@ -1,0 +1,63 @@
+> Images generated using google gemini
+
+# Game cover art generation
+
+https://g.co/gemini/share/41c5baa91b56
+
+## Final prompt
+
+You have been tasked with creating cover art for the game's main menu. The artstyle is slightly cartoon-like but still serious. The art must depict the main character of the game (a sci-fi space soldier wearing grey full body tactical armor with a helmet that has a bright blue visor) walking through the hallway of an alien ship, towards a dark and ominous doorway with a shadowy figure while raising his assault rifle at it. The soldier must be on the left of the frame facing the door, which is towards the right of the frame. The camera would see the side and back of the soldier as he walks towards the door in front of him. The frame must be angled to depict the tension and action.
+
+output image was 1:1 ratio, used https://www.pixelcut.ai/ai-image-editor?tool=uncrop
+to make it 16:9
+
+Slightly touched up image in GIMP to make the figure less alien-like and more ominous.
+
+# Character dialog image generation
+
+https://g.co/gemini/share/946b583a3fc6
+
+https://g.co/gemini/share/a17d73131be2
+
+## Final Prompts
+
+## Megaphone icon
+
+Generate an image of a grey large megaphone cartoon icon in the same style
+
+#### Mark
+
+Can you generate an image featuring the face of an extremely zoned out (hungover) bald old man who seems extremely aloof and mentally unaware of his surroundings, possibly due to old age and isolation. The style must be cartoon-like but also serious at the same time
+
+#### Intel
+
+Diagonal pic => In the same cartoon art style, generate an image of a young woman's face, with black hair, olive skin. She has a serious expression as she is an intelligence officer for the military. The picture depicts her looking past the camera towards the right at a 45 degree angle (Presumably looking at a screen). She has a blue holographic single eyed visor on her right eye.
+Diagonal Side eye => In the same cartoon art style, generate an image of a young woman's face, with black hair, olive skin. She has a serious expression as she is an intelligence officer for the military. The picture depicts her looking past the camera towards the left at a 45 degree angle (Presumably looking at a screen). She has a blue holographic single eyed visor.
+straight ahead angry pic => In the same cartoon art style, generate an image of a young woman's face, with black long hair, olive skin. She has a serious expression as she is an intelligence officer for the military. The picture depicts her looking straight at the camera, filled with hatred. She has a blue holographic single eyed visor on her right eye.
+
+The generated dialog images were then put into https://tezumie.github.io/Image-to-Pixel/
+to make them pixellated
+
+#### Soldiers
+
+In the same cartoon art style, generate an image of a Sci-Fi Space soldier wearing grey full body tactical armor with a helmet that has a bright blue visor. The image must contain the soldier staring off camera to the right, facing the camera at a 45 degree angle towards the right. The Blue visor hides the soldiers face.
+
+Colors changed using GIMP
+
+The generated dialog images were then put into https://tezumie.github.io/Image-to-Pixel/ (Regular tool, not AI)
+to make them pixellated
+
+# Pixel art generation
+
+First attempt
+using https://openart.ai/create (History could not be shared as the free tier does not allow you to store history for more than 7 days)
+
+prompt: You have been tasked with generating pixel art assets for a 2d top-down shooter. Each sprite must be 16 by 16 pixels. The character in question is a sci-fi space soldier wearing grey full body tactical armor with a helmet that has a bright blue visor. The soldier is carrying a futuristic assault rifle. Generate a sprite sheet for running, walking, and idling animations for the character facing all directions.
+
+Output did was not a spritesheet or even pixel art, so could not be used.
+
+Researching the topic lead to the discovery that it is extremely hard to get accurately generated spritesheets that properly animate.
+
+Creating all in game 2d sprites using GIMP
+
+using the google gemini generated images as character designs to create the pixel art
