@@ -82,7 +82,7 @@ func _on_settings_pressed() -> void:
 	sfxVolumeSlider.value = DataService.getGlobalSettings()['sfxVolume']
 	masterVolumeSlider.value = DataService.getGlobalSettings()['masterVolume']
 	musicVolumeSlider.value = DataService.getGlobalSettings()['musicVolume']
-	
+	$Control/SettingsButtonCard/PanelContainer/MarginContainer/VBoxContainer/DifficultyContainer/OptionButton.selected=DataService.getDifficulty()
 	animationPlayer.play('settings_enter')
 	
 
@@ -108,3 +108,7 @@ func _on_master_slider_value_changed(value: float) -> void:
 func _on_back_pressed() -> void:
 	$MenuBack.play()
 	animationPlayer.play_backwards("settings_enter")
+
+
+func _on_difficulty_option_item_selected(index: int) -> void:
+	DataService.setDifficulty(index)

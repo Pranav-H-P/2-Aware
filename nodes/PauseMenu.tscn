@@ -456,6 +456,33 @@ theme = ExtResource("1_lilov")
 max_value = 1.0
 step = 0.001
 
+[node name="DifficultyContainer" type="HBoxContainer" parent="Control/SettingsButtonCard/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/SettingsButtonCard/PanelContainer/MarginContainer/VBoxContainer/DifficultyContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme = ExtResource("1_lilov")
+text = "Difficulty"
+fit_content = true
+autowrap_mode = 0
+
+[node name="OptionButton" type="OptionButton" parent="Control/SettingsButtonCard/PanelContainer/MarginContainer/VBoxContainer/DifficultyContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_lilov")
+selected = 2
+item_count = 4
+popup/item_0/text = "Easy"
+popup/item_0/id = 0
+popup/item_1/text = "Normal"
+popup/item_1/id = 1
+popup/item_2/text = "Challenging"
+popup/item_2/id = 2
+popup/item_3/text = "Hard"
+popup/item_3/id = 3
+
 [node name="Back" type="Button" parent="Control/SettingsButtonCard/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("1_lilov")
@@ -481,4 +508,5 @@ libraries = {
 [connection signal="value_changed" from="Control/SettingsButtonCard/PanelContainer/MarginContainer/VBoxContainer/MasterVolumeContainer/HSlider" to="." method="_on_master_slider_value_changed"]
 [connection signal="value_changed" from="Control/SettingsButtonCard/PanelContainer/MarginContainer/VBoxContainer/MusicVolumeContainer/HSlider" to="." method="_on_music_slider_value_changed"]
 [connection signal="value_changed" from="Control/SettingsButtonCard/PanelContainer/MarginContainer/VBoxContainer/SfxVolumeContainer/HSlider" to="." method="_on_sfx_slider_value_changed"]
+[connection signal="item_selected" from="Control/SettingsButtonCard/PanelContainer/MarginContainer/VBoxContainer/DifficultyContainer/OptionButton" to="." method="_on_difficulty_option_item_selected"]
 [connection signal="pressed" from="Control/SettingsButtonCard/PanelContainer/MarginContainer/VBoxContainer/Back" to="." method="_on_back_pressed"]

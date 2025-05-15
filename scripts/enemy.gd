@@ -13,7 +13,7 @@ enum ALIEN_TYPE{
 	SNIPER = 2
 }
 
-const ALIEN_DATA:Dictionary = {
+var ALIEN_DATA:Dictionary = {
 	ALIEN_TYPE.NORMAL: {
 		'sprite':arAlienSprite,
 		"fireRate" : 240.0,
@@ -59,6 +59,27 @@ var bulletAbove = false
 
 
 func _ready() -> void:
+	
+	match DataService.getDifficulty():
+		0:
+			SPEED = 3
+			bulletSpeed = 1
+			ALIEN_DATA[ALIEN_TYPE.NORMAL]['damage'] = 3
+			ALIEN_DATA[ALIEN_TYPE.SHOTGUN]['damage'] = 5
+			ALIEN_DATA[ALIEN_TYPE.SNIPER]['damage'] = 15
+		1:
+			SPEED = 4
+			ALIEN_DATA[ALIEN_TYPE.NORMAL]['damage'] = 3
+			ALIEN_DATA[ALIEN_TYPE.SHOTGUN]['damage'] = 5
+			ALIEN_DATA[ALIEN_TYPE.SNIPER]['damage'] = 15
+		2:
+			pass
+		3:
+			bulletSpeed = 3
+			ALIEN_DATA[ALIEN_TYPE.NORMAL]['damage'] = 8
+			ALIEN_DATA[ALIEN_TYPE.SHOTGUN]['damage'] = 14
+			ALIEN_DATA[ALIEN_TYPE.SNIPER]['damage'] = 50
+	
 	makePath()
 	shootTimer.one_shot = true
 	sprite.texture = ALIEN_DATA[alienType]['sprite']

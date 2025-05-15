@@ -51,6 +51,30 @@ var bulletAbove = false
 var violent = false
 
 func _ready() -> void:
+	
+	match DataService.getDifficulty():
+		0:
+			SPEED = 6
+			bulletSpeed = 1
+			attackTypeData['ar']['damage'] = 3
+			attackTypeData['shotgun']['damage'] = 4
+			attackTypeData['sniper']['damage'] = 13
+			attackTypeData['circle']['damage'] = 3
+		1:
+			SPEED = 6
+			bulletSpeed = 1
+			
+		2:
+			pass
+		3:
+			SPEED = 8
+			bulletSpeed = 3
+			attackTypeData['ar']['damage'] = 10
+			attackTypeData['shotgun']['damage'] = 9
+			attackTypeData['sniper']['damage'] = 40
+			attackTypeData['circle']['damage'] = 9
+	
+	
 	makePath()
 	shootTimer.one_shot = true
 	shootTimer.wait_time =60.0 / attackTypeData[attackType]['fireRate']

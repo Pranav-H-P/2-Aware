@@ -101,6 +101,7 @@ func setupDynamicUI():
 	helpButtonCard.position.x = outOfViewPointX
 	helpButtonCard.modulate.a = 0.0
 	
+	$MenuElements/NewGamePopup/PanelContainer/MarginContainer/Unpatched/DifficultyContainer/OptionButton.selected=DataService.getDifficulty()
 	sfxVolumeSlider.value = DataService.getGlobalSettings()['sfxVolume']
 	masterVolumeSlider.value = DataService.getGlobalSettings()['masterVolume']
 	musicVolumeSlider.value = DataService.getGlobalSettings()['musicVolume']
@@ -318,3 +319,7 @@ func _on_start_new_game_pressed() -> void:
 func _on_player_name_text_changed(new_text: String) -> void:
 	playerName = new_text.lstrip(' ').rstrip(' ')
 	
+
+
+func _on_difficulty_option_item_selected(index: int) -> void:
+	DataService.setDifficulty(index)

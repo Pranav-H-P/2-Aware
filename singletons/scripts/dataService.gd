@@ -4,10 +4,18 @@ extends Node
 const userSavePath := 'user://UserData.json' # save file
 const globalSettingsPath := 'user://GlobalSettings.json' # preferences and other global data 
 
+enum DIFFICULTY{
+	EASY = 0,
+	NORMAL = 1,
+	CHALLENGING = 2,
+	HARD = 3
+}
+
 const userSaveDataTemplate := {
 	"level": 0,
 	"name": "",
 	"health": 100,
+	"difficulty": DIFFICULTY.NORMAL,
 	"ammo": [
 		0,
 		0
@@ -23,6 +31,7 @@ const globalSettingsTemplate := {
 var userSaveData := {
 	"level": 0,
 	"name": '',
+	"difficulty": DIFFICULTY.NORMAL,
 	"health": 100,
 	"ammo": [
 		0,
@@ -93,7 +102,15 @@ func saveUserData(level = 0, health = 100, shotgun = 0, sniper = 0):
 	userSaveData['ammo'] = [shotgun, sniper]
 	userSaveData['level'] = level
 	userSaveData['health'] = clamp(health, 80,100)
+	if !userSaveData.has('difficulty'):
+		userSaveData['difficulty'] = DIFFICULTY.CHALLENGING		
 	writeJson(userSavePath, userSaveData)
+
+func getDifficulty():
+	return userSaveData.get('difficulty',DIFFICULTY.CHALLENGING)
+
+func setDifficulty(difficulty: DIFFICULTY):
+	userSaveData['difficulty'] = difficulty
 
 func getGlobalSettings():
 	return globalSettings

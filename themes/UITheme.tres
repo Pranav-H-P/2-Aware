@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=13 format=3 uid="uid://bxb15ddvju7oh"]
+[gd_resource type="Theme" load_steps=18 format=3 uid="uid://bxb15ddvju7oh"]
 
 [ext_resource type="StyleBox" uid="uid://5rqon60jenmh" path="res://themes/DefaultPanelStyleBox.tres" id="1_q3gsg"]
 [ext_resource type="FontFile" uid="uid://bpmk5dc133ybv" path="res://assets/fonts/Orbitron-VariableFont_wght.ttf" id="2_2bbpc"]
@@ -22,6 +22,29 @@ expand_margin_bottom = 5.0
 bg_color = Color(0, 0, 0, 1)
 expand_margin_top = 5.0
 expand_margin_bottom = 5.0
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_x2thc"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_dxoo8"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_t0lg0"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_c86ub"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ag1jm"]
+bg_color = Color(0.128312, 0.157256, 0.198102, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0.577463, 0.718141, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+shadow_color = Color(0, 0, 0, 1)
+shadow_size = 2
+anti_aliasing = false
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cek67"]
 content_margin_left = 4.0
@@ -65,7 +88,22 @@ LineEdit/font_sizes/font_size = 40
 LineEdit/fonts/font = ExtResource("2_2bbpc")
 LineEdit/styles/focus = ExtResource("5_x2thc")
 LineEdit/styles/normal = ExtResource("6_dxoo8")
+OptionButton/font_sizes/font_size = 35
+OptionButton/fonts/font = ExtResource("2_2bbpc")
 Panel/styles/panel = ExtResource("1_q3gsg")
+PopupMenu/constants/item_start_padding = 8
+PopupMenu/font_sizes/font_size = 35
+PopupMenu/icons/checked = null
+PopupMenu/icons/checked_disabled = null
+PopupMenu/icons/radio_checked = SubResource("PlaceholderTexture2D_x2thc")
+PopupMenu/icons/radio_checked_disabled = SubResource("PlaceholderTexture2D_dxoo8")
+PopupMenu/icons/radio_unchecked = SubResource("PlaceholderTexture2D_t0lg0")
+PopupMenu/icons/radio_unchecked_disabled = SubResource("PlaceholderTexture2D_c86ub")
+PopupMenu/styles/hover = ExtResource("2_vntwr")
+PopupMenu/styles/labeled_separator_left = null
+PopupMenu/styles/labeled_separator_right = null
+PopupMenu/styles/panel = SubResource("StyleBoxFlat_ag1jm")
+PopupMenu/styles/separator = null
 RichTextLabel/colors/default_color = Color(1, 1, 1, 1)
 RichTextLabel/colors/font_outline_color = Color(0, 0, 0, 1)
 RichTextLabel/colors/font_selected_color = Color(0, 0, 0, 0)
