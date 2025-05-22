@@ -233,7 +233,6 @@ text = "Exit"
 alignment = 0
 
 [node name="HelpButtonCard" type="Control" parent="MenuElements"]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -285,6 +284,8 @@ text = "[color=cyan][b]W,A,S,D[/b][/color] to MOVE the [color=cyan][b]Player[/b]
 Press [color=cyan][b]1[/b][/color] for the [color=cyan][b]ASSAULT RIFLE[/b][/color]
 Press [color=cyan][b]2[/b][/color] for the [color=cyan][b]SHOTGUN[/b][/color]
 Press [color=cyan][b]3[/b][/color] for the [color=cyan][b]SNIPER[/b][/color]
+
+The [color=cyan][b]SNIPER[/b][/color] can [color=cyan][b]SHOOT THROUGH TARGETS[/b][/color]
 
 [color=cyan][b]LEFT CLICK[/b][/color] to [color=cyan][b]SKIP DIALOGUE[/b][/color]
 
